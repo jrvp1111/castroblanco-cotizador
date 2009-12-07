@@ -23,23 +23,47 @@ public class Cliente
         return this.tipoId ;
     }
 
+    public void setTipoId (String tipoId){
+        this.tipoId = tipoId ;
+    }
+
     public int getNumeroId (){
         return this.numeroId ;
+    }
+
+    public void setNumeroId (int numId){
+        this.numeroId = numId ;
     }
 
     public String getNombre (){
         return this.nombre ;
     }
 
+    public void setNombre (String nom){
+        this.nombre = nom ;
+    }
+
     public String getApellido (){
         return this.apellido ;
+    }
+
+    public void setApellido (String ape){
+        this.apellido = ape ;
     }
 
     public String getRazonSocial (){
         return this.razonSocial ;
     }
 
+    public void setRazonSocial (String razSoc){
+        this.razonSocial = razSoc ;
+    }
+
     public String getEmail (){
         return this.email ;
+    }
+
+    public void setEmail (String email){
+        this.email = email ;
     }
 }

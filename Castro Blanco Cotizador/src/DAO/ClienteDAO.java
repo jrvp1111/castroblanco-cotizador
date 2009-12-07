@@ -1,52 +1,53 @@
 
 package DAO;
 
-import Entidades.Chofer;
+import Entidades.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ChoferDAO
+public class ClienteDAO
 {
-    public Chofer obtenerPorDni(int nroDni) {
-    Chofer c = null;
+    public Cliente obtenerPorDni(int nroDni) {
+    Cliente c = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
         try {
-            String query = "SELECT * FROM Choferes WHERE dni = ?";
+            String query = "SELECT * FROM Clientes WHERE tipoId = ? AND numeroId = ?";
             Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
             stmt = conn.prepareStatement(query);
             stmt.setInt(1, nroDni);
             rs = stmt.executeQuery();
             if(rs.next()) {
-                    c.setDni(rs.getInt("dni"));
+                    c.setTipoId(rs.getString("tipoId"));
+                    c.setNumeroId(rs.getInt("numeroId"));
                     c.setNombre(rs.getString("nombre"));
                     c.setApellido(rs.getString("apellido"));
-                    c.setDireccion(rs.getString("direccion"));
-                    c.setTelefono(rs.getInt("telefono"));
-                    c.setNextel(rs.getString("nextel"));
+                    c.setEmail(rs.getString("email"));
+                    c.setRazonSocial(rs.getString("razonSocial"));
             }
         }catch(SQLException e) {
             System.out.println(e.getMessage());
-        }finally {			
+        }finally {
             DAOConnectionManager.getDAOConectionManager().closeConnection(rs,stmt);
         }
         return c;
     }
 
-    public void guardar(Chofer c) {
+
+    public void guardar(Cliente c) {
     PreparedStatement stmt = null;
         try {
-                String queryContacto = "INSERT INTO Choferes VALUES (?,?,?,?,?,?)";
+                String queryContacto = "INSERT INTO Clientes VALUES (?,?,?,?,?,?)";
                 Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
                 stmt = conn.prepareStatement(queryContacto);
-                stmt.setInt(1, c.getDni());
-                stmt.setString(2, c.getNombre());
-                stmt.setString(3, c.getApellido());
-                stmt.setString(4, c.getDireccion());
-                stmt.setInt(5, c.getTelefono());
-                stmt.setString(6, c.getNextel());
+                stmt.setString(1, c.getTipoId());
+                stmt.setInt(2, c.getNumeroId());
+                stmt.setString(3, c.getNombre());
+                stmt.setString(4, c.getApellido());
+                stmt.setString(5, c.getEmail());
+                stmt.setString(6, c.getRazonSocial());
                 stmt.executeUpdate();
         }catch(SQLException e) {
                 System.out.println(e.getMessage());

@@ -12,6 +12,13 @@ public class Usuario
     public Usuario (String user , String pass){
         this.nombreUsuario = user ;
         this.contrasenia = pass ;
+        this.roles = new Vector<Rol> () ;
+    }
+
+    public Usuario() {
+        this.nombreUsuario = null ;
+        this.contrasenia = null ;
+        this.roles = new Vector<Rol> () ;
     }
 
     public void agregarRol (Rol r){
@@ -26,7 +33,15 @@ public class Usuario
         return this.nombreUsuario ;
     }
 
+    public void setNombreUsuario (String nomUsuario){
+        this.nombreUsuario = nomUsuario ;
+    }
+
     public String getContrasenia (){
         return this.contrasenia ;
+    }
+
+    public void setContrasenia (String pass){
+        this.contrasenia = pass ;
     }
 }
