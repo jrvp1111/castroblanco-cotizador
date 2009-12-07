@@ -1,4 +1,4 @@
-package castroblancocotizador;
+package Main;
 
 public class Main
 {
