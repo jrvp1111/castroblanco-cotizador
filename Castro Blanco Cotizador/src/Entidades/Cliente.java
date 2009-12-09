@@ -19,6 +19,15 @@ public class Cliente
         this.email = email ;
     }
 
+    public Cliente (){
+        this.tipoId = null ;
+        this.numeroId = 0 ;
+        this.nombre = null ;
+        this.apellido = null ;
+        this.razonSocial = null ;
+        this.email = null ;
+    }
+
     public String getTipoId (){
         return this.tipoId ;
     }
@@ -65,5 +74,14 @@ public class Cliente
 
     public void setEmail (String email){
         this.email = email ;
+    }
+
+    public String tostring (){
+        String X = "" ;
+        X = "TipoID: " + this.tipoId + " | NumeroID: " + String.valueOf(this.numeroId) + "\n"
+            + "Nombre Completo: " + this.nombre + " " + this.apellido + "\n"
+            + "Razon Social: " + this.razonSocial + "\n"
+            + "Email: " + this.email ;
+        return X ;
     }
 }

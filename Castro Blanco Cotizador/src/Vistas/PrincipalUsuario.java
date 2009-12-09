@@ -1,6 +1,9 @@
 
 package Vistas;
 
+import Controladores.BuscarClienteCONT;
+import Modelos.AdminCliente;
+
 public class PrincipalUsuario extends javax.swing.JFrame {
 
     /** Creates new form PrincipalUsuario */
@@ -13,23 +16,33 @@ public class PrincipalUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DesktopPrincipal = new javax.swing.JDesktopPane();
         menuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCargarChofer = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuChoferes = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuGenerarCotizacion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MENU PRINCIPAL");
 
         jMenuCargarChofer.setText("Camiones");
-
-        jMenuItem1.setText("Cargar Chofer Nuevo");
-        jMenuCargarChofer.add(jMenuItem1);
-
         menuBarPrincipal.add(jMenuCargarChofer);
 
         jMenuChoferes.setText("Choferes");
         menuBarPrincipal.add(jMenuChoferes);
+
+        jMenu1.setText("Cotizacion");
+
+        jMenuGenerarCotizacion.setText("Generar Cotizacion");
+        jMenuGenerarCotizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGenerarCotizacionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuGenerarCotizacion);
+
+        menuBarPrincipal.add(jMenu1);
 
         setJMenuBar(menuBarPrincipal);
 
@@ -37,20 +50,29 @@ public class PrincipalUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1015, Short.MAX_VALUE)
+            .addComponent(DesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addComponent(DesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuGenerarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGenerarCotizacionActionPerformed
+       BuscarCliente vista = new BuscarCliente () ;
+       AdminCliente modelo = new AdminCliente () ;
+       BuscarClienteCONT buscarclieCONT = new BuscarClienteCONT(vista, modelo);
+       this.DesktopPrincipal.add(vista);
+    }//GEN-LAST:event_jMenuGenerarCotizacionActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane DesktopPrincipal;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenuCargarChofer;
     private javax.swing.JMenu jMenuChoferes;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuGenerarCotizacion;
     private javax.swing.JMenuBar menuBarPrincipal;
     // End of variables declaration//GEN-END:variables
 
