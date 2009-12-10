@@ -50,6 +50,10 @@ public class Viaje
         return this.nroViaje ;
     }
 
+    public void setNroViaje (int nV){
+        this.nroViaje = nV ;
+    }
+
     public Ubicacion getOrigen (){
         return this.origen ;
     }
@@ -81,5 +85,4 @@ public class Viaje
     public Camion getCamion (){
         return this.camion ;
     }
-
 }
