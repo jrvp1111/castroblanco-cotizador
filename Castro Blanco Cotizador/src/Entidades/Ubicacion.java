@@ -16,6 +16,11 @@ public class Ubicacion
         this.direccion = dire ;
     }
 
+    @Override
+    public String toString (){
+        return (this.pais + ", " + this.provincia + ", " + this.ciudad + ", " + this.direccion) ;
+    }
+
     public String getPais (){
         return this.pais ;
     }

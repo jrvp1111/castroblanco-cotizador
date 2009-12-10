@@ -17,14 +17,21 @@ public class Viaje
     private Camion camion ;
     private Vector<CostoViaje> costosViaje ;
 
-    public Viaje (int nroViaje , Ubicacion ori , Ubicacion des , Date feSalida , Date feLlegada , int dist){
-        this.nroViaje = nroViaje ;
+    public Viaje (Ubicacion ori , Ubicacion des , Date feSalida , Date feLlegada , int dist){
         this.origen = ori ;
         this.destino = des ;
         this.fechaSalida = feSalida ;
         this.fechaLlegada = feLlegada ;
         this.distancia = dist ;
         this.costosViaje = new Vector <CostoViaje> () ;
+    }
+
+    @Override
+    public String toString (){
+        return ("ORIGEN: " + this.origen.toString() + " (" + this.fechaSalida + ")" + "\n"
+              + "DESTINO: " + this.destino.toString() + " (" + this.fechaLlegada + ")" + "\n"
+              + "DISTANCIA: " + this.distancia + " Km." + "\n"
+              + "CAMION: " + this.camion.toString()) ;
     }
 
     public void agregarCostoViaje (CostoViaje c){

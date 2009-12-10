@@ -4,7 +4,10 @@ package Vistas;
 import Controladores.CargarViajesCONT;
 import Entidades.Camion;
 import Entidades.CostoViaje;
+import Entidades.Ubicacion;
+import Entidades.Viaje;
 import Modelos.AdminViaje;
+import java.sql.Date;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
@@ -16,8 +19,10 @@ public class CargarViajes extends javax.swing.JInternalFrame
     private AdminViaje modelo;
 
     private DefaultListModel dlmCostoViaje = new DefaultListModel();
+    private DefaultListModel dlmViajesCargados = new DefaultListModel ();
 
     private Vector<CostoViaje> costoViajeTemporal ;
+    private Vector<Viaje> viajesCotizados ;
     
     public CargarViajes() {
         initComponents();
@@ -42,9 +47,32 @@ public class CargarViajes extends javax.swing.JInternalFrame
 
     public void inicializarDatosVentana (){
         this.listCostosViaje.setModel(dlmCostoViaje);
+        this.listViajesCotizados.setModel(dlmViajesCargados);
         this.costoViajeTemporal = new Vector<CostoViaje> () ;
+        this.viajesCotizados = new Vector <Viaje> () ;
+        cargarFechasEnCombo () ;
         CargarCamiones () ;
         mostrarCostosViajes () ;
+    }
+   
+    public void cargarFechasEnCombo (){
+        for (int i = 1 ; i <= 31 ; i ++){
+            this.cmbDiaS.addItem(i) ;
+            this.cmbDiaL.addItem(i);
+        }
+        for (int i = 1 ; i <= 12 ; i ++){
+            this.cmbMesS.addItem(i);
+            this.cmbMesL.addItem(i);
+        }
+        for (int i = 2009 ; i <= 2011 ; i ++){
+            this.cmbAnioS.addItem(i);
+            this.cmbAnioL.addItem(i);
+        }
+    }
+
+    private Date armarFecha (String anio, String mes, String dia){
+        Date fecha = new Date((Integer.parseInt(anio)-1900), (Integer.parseInt(mes)-1), Integer.parseInt(dia)) ;
+        return fecha;
     }
 
     public void CargarCamiones (){
@@ -65,9 +93,9 @@ public class CargarViajes extends javax.swing.JInternalFrame
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtDireccionOrigen = new javax.swing.JTextField();
-        txtPaisOrigen1 = new javax.swing.JTextField();
-        txtProvinciaOrigen1 = new javax.swing.JTextField();
-        txtCiudadOrigen1 = new javax.swing.JTextField();
+        txtPaisOrigen = new javax.swing.JTextField();
+        txtProvinciaOrigen = new javax.swing.JTextField();
+        txtCiudadOrigen = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -102,6 +130,17 @@ public class CargarViajes extends javax.swing.JInternalFrame
         btnAgregarCostoAdi = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         txtTotalCostoViaje = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listViajesCotizados = new javax.swing.JList();
+        btnAgregarViaje = new javax.swing.JButton();
+        btnEliminarViaje = new javax.swing.JButton();
+        cmbAnioL = new javax.swing.JComboBox();
+        cmbDiaL = new javax.swing.JComboBox();
+        cmbMesL = new javax.swing.JComboBox();
+        cmbDiaS = new javax.swing.JComboBox();
+        cmbMesS = new javax.swing.JComboBox();
+        cmbAnioS = new javax.swing.JComboBox();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -118,7 +157,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         setIconifiable(true);
         setResizable(true);
         setTitle("CARGAR VIAJES");
-        setPreferredSize(new java.awt.Dimension(678, 532));
+        setPreferredSize(new java.awt.Dimension(730, 850));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder("ORIGEN"));
@@ -136,12 +175,12 @@ public class CargarViajes extends javax.swing.JInternalFrame
         jLabel4.setText("CIUDAD:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
         getContentPane().add(txtDireccionOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 130, -1));
-        getContentPane().add(txtPaisOrigen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 130, -1));
-        getContentPane().add(txtProvinciaOrigen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 130, -1));
-        getContentPane().add(txtCiudadOrigen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 130, -1));
+        getContentPane().add(txtPaisOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 130, -1));
+        getContentPane().add(txtProvinciaOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 130, -1));
+        getContentPane().add(txtCiudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 130, -1));
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS VARIOS"));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 260));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 20));
 
         jLabel5.setText("DIRECCION:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
@@ -168,8 +207,8 @@ public class CargarViajes extends javax.swing.JInternalFrame
 
         jLabel11.setText("Fecha de salida:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-        getContentPane().add(calFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
-        getContentPane().add(calFechaLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+        getContentPane().add(calFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
+        getContentPane().add(calFechaLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createTitledBorder("DESTINO"));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, 150));
@@ -190,7 +229,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         txtDetalleMercaderia.setRows(5);
         jScrollPane1.setViewportView(txtDetalleMercaderia);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 320, 70));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 430, 70));
 
         jSeparator4.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTOS ADICIONALES"));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 460, 170));
@@ -230,6 +269,53 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, -1, -1));
         getContentPane().add(txtTotalCostoViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 60, -1));
 
+        jSeparator5.setBorder(javax.swing.BorderFactory.createTitledBorder("VIAJES A COTIZAR"));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 460, 20));
+
+        listViajesCotizados.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(listViajesCotizados);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 420, 110));
+
+        btnAgregarViaje.setText("AGREGAR VIAJE");
+        btnAgregarViaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarViajeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 770, -1, -1));
+
+        btnEliminarViaje.setText("ELIMINAR VIAJE");
+        getContentPane().add(btnEliminarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 770, -1, -1));
+
+        cmbAnioL.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+        }));
+        getContentPane().add(cmbAnioL, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 70, -1));
+
+        cmbDiaL.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+        }));
+        getContentPane().add(cmbDiaL, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 50, -1));
+
+        cmbMesL.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+        }));
+        getContentPane().add(cmbMesL, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 50, -1));
+
+        cmbDiaS.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+        }));
+        getContentPane().add(cmbDiaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 50, -1));
+
+        cmbMesS.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+        }));
+        getContentPane().add(cmbMesS, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 50, -1));
+
+        cmbAnioS.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+        }));
+        getContentPane().add(cmbAnioS, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 70, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -242,6 +328,42 @@ public class CargarViajes extends javax.swing.JInternalFrame
         this.txtNombreCostoAdi.setText("");
         this.txtMontoCostoAdi.setText("");
     }//GEN-LAST:event_btnAgregarCostoAdiActionPerformed
+
+    public void cargarViaje (){
+        Ubicacion Origen = new Ubicacion (this.txtPaisOrigen.getText() , this.txtProvinciaOrigen.getText() , this.txtCiudadOrigen.getText() , this.txtDireccionOrigen.getText()) ;
+        Ubicacion Destino = new Ubicacion (this.txtPaisDestino.getText() , this.txtProvinciaDestino.getText() , this.txtCiudadDestino.getText() , this.txtDireccionDestino.getText()) ;
+
+        //Date fechaSalida = (Date) calFechaSalida.getDate() ;
+        //Date fechaLlegada = (Date) calFechaLlegada.getDate() ;
+
+        Date FechaSalida = this.armarFecha(this.cmbAnioS.getSelectedItem().toString() , this.cmbMesS.getSelectedItem().toString() , this.cmbDiaS.getSelectedItem().toString()) ;
+        Date FechaLlegada = this.armarFecha(this.cmbAnioL.getSelectedItem().toString() , this.cmbMesL.getSelectedItem().toString() , this.cmbDiaL.getSelectedItem().toString()) ;
+
+        int Distancia = Integer.valueOf(txtDistancia.getText()) ;
+        
+        Viaje nuevoViaje = new Viaje (Origen , Destino , FechaSalida , FechaLlegada , Distancia) ;
+
+        this.viajesCotizados.add(nuevoViaje);
+
+        //mostrarViajesCargados () ;
+
+        this.mostrarMensaje("Viaje cargado exitosamente !");
+    }
+
+    // BOTON AGREGAR VIAJE
+    private void btnAgregarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarViajeActionPerformed
+        cargarViaje () ;
+    }//GEN-LAST:event_btnAgregarViajeActionPerformed
+
+    public void mostrarViajesCargados (){
+        DefaultListModel dlmViajesCargadosAux = (DefaultListModel) this.listViajesCotizados.getModel() ;
+        dlmViajesCargadosAux.clear(); 
+        for (int i = 0 ; i < this.viajesCotizados.size() ; i ++){
+             Viaje aux = this.viajesCotizados.get (i);
+             dlmViajesCargadosAux.addElement(aux);
+        }
+        this.listViajesCotizados.setModel(dlmViajesCargadosAux);
+    }
 
     public void mostrarCostosViajes (){
         DefaultListModel dmlCostosViajesAux = (DefaultListModel) this.listCostosViaje.getModel();
@@ -264,11 +386,19 @@ public class CargarViajes extends javax.swing.JInternalFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarCostoAdi;
+    private javax.swing.JButton btnAgregarViaje;
     private javax.swing.JButton btnDetalleCamion;
     private javax.swing.JButton btnEliminarCostoAdi;
+    private javax.swing.JButton btnEliminarViaje;
     private org.freixas.jcalendar.JCalendarCombo calFechaLlegada;
     private org.freixas.jcalendar.JCalendarCombo calFechaSalida;
+    private javax.swing.JComboBox cmbAnioL;
+    private javax.swing.JComboBox cmbAnioS;
     private javax.swing.JComboBox cmbCamion;
+    private javax.swing.JComboBox cmbDiaL;
+    private javax.swing.JComboBox cmbDiaS;
+    private javax.swing.JComboBox cmbMesL;
+    private javax.swing.JComboBox cmbMesS;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -289,13 +419,16 @@ public class CargarViajes extends javax.swing.JInternalFrame
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JList listCostosViaje;
+    private javax.swing.JList listViajesCotizados;
     private javax.swing.JTextField txtCiudadDestino;
-    private javax.swing.JTextField txtCiudadOrigen1;
+    private javax.swing.JTextField txtCiudadOrigen;
     private javax.swing.JTextArea txtDetalleMercaderia;
     private javax.swing.JTextField txtDireccionDestino;
     private javax.swing.JTextField txtDireccionOrigen;
@@ -303,9 +436,9 @@ public class CargarViajes extends javax.swing.JInternalFrame
     private javax.swing.JTextField txtMontoCostoAdi;
     private javax.swing.JTextField txtNombreCostoAdi;
     private javax.swing.JTextField txtPaisDestino;
-    private javax.swing.JTextField txtPaisOrigen1;
+    private javax.swing.JTextField txtPaisOrigen;
     private javax.swing.JTextField txtProvinciaDestino;
-    private javax.swing.JTextField txtProvinciaOrigen1;
+    private javax.swing.JTextField txtProvinciaOrigen;
     private javax.swing.JTextField txtTotalCostoViaje;
     // End of variables declaration//GEN-END:variables
 }
