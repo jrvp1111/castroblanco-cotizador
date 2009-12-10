@@ -221,11 +221,6 @@ INSERT INTO Camiones VALUES ('FED-925','Ford','SE1200',10,15)
 INSERT INTO Camiones VALUES ('ETG-108','Volskwagen','RX1300',10,12)
 INSERT INTO Camiones VALUES ('GXE-325','Renault','TGZ20',12,10)
 
-INSERT INTO CostosFijos VALUES ('Satelital','20091111',120,'FED-925')
-INSERT INTO CostosFijos VALUES ('Sseguro','20091111',160,'FED-925')
 
-SELECT cam.patente , cam.marca , cam.modelo , cfij.nombre as 'costo' , cfij.valor
-FROM Camiones cam
-INNER JOIN CostosFijos cfij
-ON cam.patente = cfij.patente
-ORDER BY cam.patente , cfij.nombre
+
+

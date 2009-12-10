@@ -36,7 +36,8 @@ public class Camion
         this.costosFinancieros = new Vector <CostoFinanciero> () ;
     }
 
-    public String toStringMarcaModelo (){
+    @Override
+    public String toString (){
         return this.marca + " - " + this.modelo ;
     }
 

@@ -79,7 +79,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         List<Camion> aux = this.modelo.obtenerCamiones() ;
         for (int i = 0 ; i < aux.size() ; i ++){
             Camion auxCam = aux.get(i) ;
-            this.cmbCamion.addItem(auxCam.toStringMarcaModelo());
+            this.cmbCamion.addItem(auxCam);
         }
     }
 
@@ -343,9 +343,11 @@ public class CargarViajes extends javax.swing.JInternalFrame
         
         Viaje nuevoViaje = new Viaje (Origen , Destino , FechaSalida , FechaLlegada , Distancia) ;
 
+        nuevoViaje.setCamion((Camion) this.cmbCamion.getSelectedItem());
+
         this.viajesCotizados.add(nuevoViaje);
 
-        //mostrarViajesCargados () ;
+        mostrarViajesCargados () ;
 
         this.mostrarMensaje("Viaje cargado exitosamente !");
     }
@@ -360,7 +362,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         dlmViajesCargadosAux.clear(); 
         for (int i = 0 ; i < this.viajesCotizados.size() ; i ++){
              Viaje aux = this.viajesCotizados.get (i);
-             dlmViajesCargadosAux.addElement(aux);
+             dlmViajesCargadosAux.addElement(aux.toString());
         }
         this.listViajesCotizados.setModel(dlmViajesCargadosAux);
     }
