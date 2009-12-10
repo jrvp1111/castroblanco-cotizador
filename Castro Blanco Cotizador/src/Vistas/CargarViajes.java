@@ -333,15 +333,18 @@ public class CargarViajes extends javax.swing.JInternalFrame
         Ubicacion Origen = new Ubicacion (this.txtPaisOrigen.getText() , this.txtProvinciaOrigen.getText() , this.txtCiudadOrigen.getText() , this.txtDireccionOrigen.getText()) ;
         Ubicacion Destino = new Ubicacion (this.txtPaisDestino.getText() , this.txtProvinciaDestino.getText() , this.txtCiudadDestino.getText() , this.txtDireccionDestino.getText()) ;
 
-        //Date fechaSalida = (Date) calFechaSalida.getDate() ;
-        //Date fechaLlegada = (Date) calFechaLlegada.getDate() ;
+        java.util.Date fechaSalida = calFechaSalida.getDate() ;
+        java.util.Date fechaLlegada = calFechaLlegada.getDate() ;
 
-        Date FechaSalida = this.armarFecha(this.cmbAnioS.getSelectedItem().toString() , this.cmbMesS.getSelectedItem().toString() , this.cmbDiaS.getSelectedItem().toString()) ;
-        Date FechaLlegada = this.armarFecha(this.cmbAnioL.getSelectedItem().toString() , this.cmbMesL.getSelectedItem().toString() , this.cmbDiaL.getSelectedItem().toString()) ;
+        java.sql.Date fSalidaSql = new java.sql.Date(fechaSalida.getTime());
+        java.sql.Date fLlegadaSql = new java.sql.Date(fechaLlegada.getTime());
+
+        //Date FechaSalida = this.armarFecha(this.cmbAnioS.getSelectedItem().toString() , this.cmbMesS.getSelectedItem().toString() , this.cmbDiaS.getSelectedItem().toString()) ;
+        //Date FechaLlegada = this.armarFecha(this.cmbAnioL.getSelectedItem().toString() , this.cmbMesL.getSelectedItem().toString() , this.cmbDiaL.getSelectedItem().toString()) ;
 
         int Distancia = Integer.valueOf(txtDistancia.getText()) ;
         
-        Viaje nuevoViaje = new Viaje (Origen , Destino , FechaSalida , FechaLlegada , Distancia) ;
+        Viaje nuevoViaje = new Viaje (Origen , Destino , fSalidaSql , fLlegadaSql , Distancia) ;
 
         nuevoViaje.setCamion((Camion) this.cmbCamion.getSelectedItem());
 
