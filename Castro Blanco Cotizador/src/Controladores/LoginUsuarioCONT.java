@@ -19,16 +19,15 @@ public class LoginUsuarioCONT
     }
 
     public void procesarIngresar(String nombreUsuario, String contrasenia) {
-        Usuario u = modelo.obtenerPorNombreUsuario(nombreUsuario);
-
+        Usuario u = modelo.obtenerPorNombreUsuario(nombreUsuario) ;
+        
         if (u == null){
             vista.mostrarMensaje("El usuario ingresado no es valido");
             return ;
         }
-
         if(u.getContrasenia().equals(contrasenia)) {
             //ABRE LA VENTANA PRINCIPAL DEL USUARIO
-            PrincipalUsuario pu = new PrincipalUsuario();
+            PrincipalUsuario.getInstancia() ;
             // CIERRO LA VENTANA DEL LOGIN
             vista.cerrar () ;
         }

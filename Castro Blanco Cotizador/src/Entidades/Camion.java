@@ -25,6 +25,21 @@ public class Camion
         this.costosFinancieros = new Vector <CostoFinanciero> () ;
     }
 
+    public Camion (){
+        this.patente = null ;
+        this.marca = null ;
+        this.modelo = null ;
+        this.cantPallets = 0 ;
+        this.cantCombustible = 0 ;
+        this.costosFijos = new Vector <CostoFijo> () ;
+        this.costosVariables = new Vector <CostoVariable> () ;
+        this.costosFinancieros = new Vector <CostoFinanciero> () ;
+    }
+
+    public String toStringMarcaModelo (){
+        return this.marca + " - " + this.modelo ;
+    }
+
     public void agregarCostoFijo (CostoFijo c){
         this.costosFijos.add(c);
     }

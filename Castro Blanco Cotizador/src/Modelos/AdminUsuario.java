@@ -16,5 +16,4 @@ public class AdminUsuario
         Usuario u = this.usuarioDAO.obtenerPorNombreUsuario(nomUsuario);
         return u ;
     }
-
 }

@@ -4,15 +4,27 @@ package Vistas;
 import Controladores.BuscarClienteCONT;
 import Modelos.AdminCliente;
 
-public class PrincipalUsuario extends javax.swing.JFrame {
+public class PrincipalUsuario extends javax.swing.JFrame
+{
+    private static PrincipalUsuario PU = null ;
 
-    /** Creates new form PrincipalUsuario */
     public PrincipalUsuario() {
         initComponents();
         this.setVisible(true);
     }
 
-    @SuppressWarnings("unchecked")
+    public static PrincipalUsuario getInstancia(){
+        if(PU == null){
+            PU = new PrincipalUsuario();
+        }
+        return PU;
+    }
+
+    public void agregarVentanCargarViajes (CargarViajes vista){
+        this.DesktopPrincipal.add(vista);
+        vista.setVisible(true);
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -50,11 +62,11 @@ public class PrincipalUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
+            .addComponent(DesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
+            .addComponent(DesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 949, Short.MAX_VALUE)
         );
 
         pack();
@@ -75,5 +87,4 @@ public class PrincipalUsuario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuGenerarCotizacion;
     private javax.swing.JMenuBar menuBarPrincipal;
     // End of variables declaration//GEN-END:variables
-
 }

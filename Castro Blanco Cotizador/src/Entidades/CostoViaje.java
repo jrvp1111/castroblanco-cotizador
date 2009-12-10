@@ -13,4 +13,9 @@ public class CostoViaje extends Costo
     public float getValor (){
         return this.valor ;
     }
+
+    @Override
+    public String toString (){
+        return (this.nombre + ": $" +  this.valor);
+    }
 }

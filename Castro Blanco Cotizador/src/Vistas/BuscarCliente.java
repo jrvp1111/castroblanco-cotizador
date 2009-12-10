@@ -6,7 +6,6 @@ import Entidades.Cliente;
 import Modelos.AdminCliente;
 import javax.swing.JOptionPane;
 
-
 public class BuscarCliente extends javax.swing.JInternalFrame
 {
     private BuscarClienteCONT controlador;
@@ -34,6 +33,10 @@ public class BuscarCliente extends javax.swing.JInternalFrame
 
     public void setModelo(AdminCliente m) {
       this.modelo = m;
+    }
+
+    public void cerrar() {
+      dispose();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -103,7 +106,11 @@ public class BuscarCliente extends javax.swing.JInternalFrame
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        // seguir a partir de aca
+       if (this.txtDatosCliente.equals("")){
+           this.mostrarMensaje("Debe seleccionar al cliente que pide la cotizacion !");
+           return ;
+       }
+       this.controlador.procesarBotonSiguiente();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
