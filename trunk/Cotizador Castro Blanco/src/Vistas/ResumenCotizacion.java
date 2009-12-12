@@ -49,7 +49,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         setTitle("RESUMEN DE LA COTIZACION");
 
         txtResumen.setColumns(20);
-        txtResumen.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtResumen.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtResumen.setRows(5);
         jScrollPane1.setViewportView(txtResumen);
 
@@ -67,7 +67,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         pack();
