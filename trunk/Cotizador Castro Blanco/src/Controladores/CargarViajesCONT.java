@@ -51,6 +51,8 @@ public class CargarViajesCONT
         this.vista.agregarCostosViajeTemporales(nuevoViaje);
         // agrego el viaje al vector temporal de viajes
         this.vista.agregarViajeAVectorTemporal(nuevoViaje);
+        // limpio el vector temporal con los costos viaje
+        this.vista.limpiarVectorCostoViajeTemporal();
         // muestro en la lista los viajes cotizados
         this.vista.mostrarViajesCargados();
         // muestro el cartel de viaje cargado

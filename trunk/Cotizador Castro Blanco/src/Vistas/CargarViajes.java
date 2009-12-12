@@ -306,6 +306,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         this.txtMontoCostoAdi.setText("");
         this.txtTotalCostoViaje.setText("");
         DefaultListModel blanco = new DefaultListModel () ;
+        blanco.clear(); 
         this.listCostosViaje.setModel(blanco);
     }
 
@@ -337,7 +338,11 @@ public class CargarViajes extends javax.swing.JInternalFrame
             v.agregarCostoViaje(c);
         }
     }
-    
+
+    public void limpiarVectorCostoViajeTemporal (){
+        this.costoViajeTemporal.clear();
+    }
+
     // BOTON AGREGAR VIAJE
     private void btnAgregarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarViajeActionPerformed
         cargarViaje () ;
