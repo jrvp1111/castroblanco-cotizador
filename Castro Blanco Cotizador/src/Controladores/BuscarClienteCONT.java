@@ -14,6 +14,8 @@ public class BuscarClienteCONT
     private BuscarCliente vista;
     private AdminCliente modelo;
 
+    private Cliente cli ;
+
     public BuscarClienteCONT(BuscarCliente v, AdminCliente m) {
         this.vista = v;
         this.modelo = m;
@@ -30,6 +32,8 @@ public class BuscarClienteCONT
         }
         else{
             vista.cargarDatosCliente(c);
+            // seteo el cliente buscado en la vista
+            this.cli = c ;
         }
     }
 
@@ -40,6 +44,11 @@ public class BuscarClienteCONT
        this.vista.cerrar();
        // el controlador se encarga de inicializar la ventana ?
        cargarviajesCONT.InicializarVentana() ;
-       PrincipalUsuario.getInstancia().agregarVentanCargarViajes(auxVista);
+       // le seteo a la cotizacion, el cliente buscado en esta ventana
+       cargarviajesCONT.setCliente(cli);
+       // automaticamente genero una cotizacion, y la guardo para que de esta forma, me tire el numero que fue generado
+       cargarviajesCONT.inicializarCotizacion() ;
+       // cargo la ventana de "cargar viajes" al desktop principal 
+       PrincipalUsuario.getInstancia().agregarVentanaCargarViajes(auxVista);
     }
 }

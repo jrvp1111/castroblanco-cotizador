@@ -95,7 +95,7 @@ CREATE TABLE CostosFinancieros
 
 CREATE TABLE Cotizaciones
 (
-	nroCotizacion int not null,
+	nroCotizacion int not null identity (1000,1),
 	costoOperativo float not null,
 	estado bit not null,
 	fechaEmision datetime not null,
@@ -124,7 +124,7 @@ CREATE TABLE CostosMacro
 
 CREATE TABLE OrdenesViajes
 (
-	nroOrdenViaje int not null identity (1,1),
+	nroOrdenViaje int not null identity (1000,1),
 	nroCotizacion int not null,
 	fechaEmision datetime not null,
 	observaciones varchar (50) null,
@@ -210,17 +210,38 @@ CREATE TABLE UsuariosPermisos
 )
 
 
-
-
-SELECT * FROM Clientes
-SELECT * FROM Camiones
-SELECT * FROM CostosFijos
-SELECT * FROM CostosVariables
+/* --- CARGA DE DATOS --- */
 
 INSERT INTO Camiones VALUES ('FED-925','Ford','SE1200',10,15)
 INSERT INTO Camiones VALUES ('ETG-108','Volskwagen','RX1300',10,12)
 INSERT INTO Camiones VALUES ('GXE-325','Renault','TGZ20',12,10)
 
+INSERT INTO Usuarios VALUES ('TomasCereminati' , 'tc')
+INSERT INTO Usuarios VALUES ('ColoCastro' , 'cc')
 
+INSERT INTO Clientes VALUES ('CUIL' , 34079773 , 'Tomas' , 'Cereminati' , 'tcereminati@hotmail.com' , 'Lacer S.H.')
+INSERT INTO Clientes VALUES ('CUIT' , 12345678 , 'Nazareno' , 'Pesado' , 'npesado@gmail.com' , 'ZonalShop')
 
+INSERT INTO CostosFijos VALUES ('Satelital' , '20091211' , 170 , 'FED-925')
+INSERT INTO CostosFijos VALUES ('Seguro' , '20091210' , 240 , 'FED-925')
+INSERT INTO CostosFijos VALUES ('Patente' , '20091211' , 85 , 'FED-925')
 
+INSERT INTO CostosFijos VALUES ('Satelital' , '20091211' , 190 , 'ETG-108')
+INSERT INTO CostosFijos VALUES ('Seguro' , '20091210' , 210 , 'ETG-108')
+INSERT INTO CostosFijos VALUES ('Patente' , '20091211' , 90 , 'ETG-108')
+
+INSERT INTO CostosFijos VALUES ('Satelital' , '20091211' , 250 , 'GXE-325')
+INSERT INTO CostosFijos VALUES ('Seguro' , '20091210' , 300 , 'GXE-325')
+INSERT INTO CostosFijos VALUES ('Patente' , '20091211' , 120 , 'GXE-325')
+
+INSERT INTO CostosVariables VALUES ('Filtro Nafta' , '20091210' , 80 , 10000 , 1 , 'FED-925')
+INSERT INTO CostosVariables VALUES ('Filtro Aceite' , '20091210' , 120 , 15000 , 1 , 'FED-925')
+INSERT INTO CostosVariables VALUES ('Neumatico Direc' , '20091210' , 280 , 30000 , 2 , 'FED-925')
+
+INSERT INTO CostosVariables VALUES ('Filtro Nafta' , '20091210' , 100 , 12000 , 1 , 'ETG-108')
+INSERT INTO CostosVariables VALUES ('Filtro Aceite' , '20091210' , 150 , 18000 , 1 , 'ETG-108')
+INSERT INTO CostosVariables VALUES ('Neumatico Direc' , '20091210' , 330 , 30000 , 2 , 'ETG-108')
+
+INSERT INTO CostosVariables VALUES ('Filtro Nafta' , '20091210' , 60 , 9000 , 1 , 'GXE-325')
+INSERT INTO CostosVariables VALUES ('Filtro Aceite' , '20091210' , 95 , 12000 , 1 , 'GXE-325')
+INSERT INTO CostosVariables VALUES ('Neumatico Direc' , '20091210' , 250 , 28000 , 2 , 'GXE-325')

@@ -15,12 +15,12 @@ public class Cotizacion
     private Cliente cliente ;
     private Vector<Viaje> viajes ;
 
-    public Cotizacion (int nroCotiz , boolean est , Date fechEmi , float margenCotiz , Cliente cli){
-        this.nroCotizacion = nroCotiz ;
+    public Cotizacion (boolean est , Date fechEmi , float margenCotiz , Cliente cli){
         this.estado = est ;
         this.fechaEmision = fechEmi ;
         this.margenCotizacion = margenCotiz ;
         this.cliente = cli ;
+        this.viajes = new Vector<Viaje> () ;
     }
 
     public void agregarViaje (Viaje v){
@@ -53,6 +53,14 @@ public class Cotizacion
 
     public Cliente getCliente (){
         return this.cliente ;
+    }
+
+    public String getTipoIdCli (){
+        return this.cliente.getTipoId() ;
+    }
+
+    public int getNumeroIdCli (){
+        return this.cliente.getNumeroId();
     }
     
     public Vector<Viaje> getViajes (){

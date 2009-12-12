@@ -50,6 +50,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDatosCliente = new javax.swing.JTextArea();
         btnSiguiente = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -58,11 +59,11 @@ public class BuscarCliente extends javax.swing.JInternalFrame
         setPreferredSize(new java.awt.Dimension(500, 410));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel1.setText("Tipo de documento:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel2.setText("Numero de documento:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
@@ -84,7 +85,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame
         txtDatosCliente.setRows(5);
         jScrollPane1.setViewportView(txtDatosCliente);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 420, 140));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 420, 140));
 
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +93,11 @@ public class BuscarCliente extends javax.swing.JInternalFrame
                 btnSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, 30));
+        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Datos del cliente encontrado:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,6 +124,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame
     private javax.swing.JComboBox cmbTipoDoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtDatosCliente;
     private javax.swing.JTextField txtNumeroDoc;

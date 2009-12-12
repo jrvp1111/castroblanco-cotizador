@@ -14,6 +14,12 @@ public class CostoFijo extends Costo
         this.actualizacion = fecha ;
     }
 
+    public CostoFijo (){
+        this.nombre = null ;
+        this.valor = 0 ;
+        this.actualizacion = null ;
+    }
+
     public void setValor (float val){
         this.valor = val ;
     }

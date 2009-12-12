@@ -20,7 +20,12 @@ public class PrincipalUsuario extends javax.swing.JFrame
         return PU;
     }
 
-    public void agregarVentanCargarViajes (CargarViajes vista){
+    public void agregarVentanaCargarViajes (CargarViajes vista){
+        this.DesktopPrincipal.add(vista);
+        vista.setVisible(true);
+    }
+
+    public void agregarVentanaResumenCotizacion (ResumenCotizacion vista){
         this.DesktopPrincipal.add(vista);
         vista.setVisible(true);
     }

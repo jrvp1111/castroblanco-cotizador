@@ -9,4 +9,8 @@ public abstract class Costo
     public String getNombre (){
         return this.nombre ;
     }
+
+    public void setNombre (String nom){
+        this.nombre = nom ;
+    }
 }

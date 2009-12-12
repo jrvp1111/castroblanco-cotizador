@@ -17,12 +17,13 @@ public class Viaje
     private Camion camion ;
     private Vector<CostoViaje> costosViaje ;
 
-    public Viaje (Ubicacion ori , Ubicacion des , Date feSalida , Date feLlegada , int dist){
+    public Viaje (Ubicacion ori , Ubicacion des , Date feSalida , Date feLlegada , int dist , String descMercaderia){
         this.origen = ori ;
         this.destino = des ;
         this.fechaSalida = feSalida ;
         this.fechaLlegada = feLlegada ;
         this.distancia = dist ;
+        this.descMercaderia = descMercaderia ;
         this.costosViaje = new Vector <CostoViaje> () ;
     }
 

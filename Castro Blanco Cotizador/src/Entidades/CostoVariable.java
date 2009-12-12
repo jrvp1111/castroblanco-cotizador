@@ -20,6 +20,15 @@ public class CostoVariable extends Costo
         this.actualizacion = fecha ;
     }
 
+    public CostoVariable (){
+        this.nombre = null ;
+        this.actualizacion = null ;
+        this.cantidad = 0 ;
+        this.duracion = 0 ;
+        this.precioUnitario = 0 ;
+        this.precioKilometro = 0 ;
+    }
+
     public void CalcularPrecioKilometro ()
     {
         this.precioKilometro = ((this.precioUnitario * this.cantidad) / this.duracion) ;
