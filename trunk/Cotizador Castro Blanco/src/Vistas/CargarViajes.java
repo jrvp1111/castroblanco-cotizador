@@ -191,6 +191,11 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(cmbCamion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, -1));
 
         btnDetalleCamion.setText("VER DETALLE");
+        btnDetalleCamion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalleCamionActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnDetalleCamion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         jLabel13.setText("Descripcion de la mercaderia:");
@@ -226,6 +231,11 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 200, 80));
 
         btnEliminarCostoAdi.setText("Eliminar");
+        btnEliminarCostoAdi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCostoAdiActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarCostoAdi, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, -1, -1));
 
         btnAgregarCostoAdi.setText("Agregar");
@@ -241,14 +251,13 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(txtTotalCostoViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 60, -1));
 
         jSeparator5.setBorder(javax.swing.BorderFactory.createTitledBorder("VIAJES A COTIZAR"));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 460, 180));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 460, 190));
 
         listViajesCotizados.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        listViajesCotizados.setEnabled(false);
         jScrollPane3.setViewportView(listViajesCotizados);
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 420, 110));
@@ -262,6 +271,11 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(btnAgregarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 770, -1, -1));
 
         btnEliminarViaje.setText("ELIMINAR VIAJE");
+        btnEliminarViaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarViajeActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 770, -1, -1));
 
         btnSiguiente.setText("SIGUIENTE");
@@ -353,12 +367,45 @@ public class CargarViajes extends javax.swing.JInternalFrame
         this.controlador.procesarBotonSiguiente(); 
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
+    // elimino un costo viaje de la lista
+    private void btnEliminarCostoAdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCostoAdiActionPerformed
+        if (this.listCostosViaje.getSelectedIndex() != -1){
+            DefaultListModel dlm = (DefaultListModel) this.listCostosViaje.getModel();
+            CostoViaje aux = (CostoViaje)dlm.getElementAt(this.listCostosViaje.getSelectedIndex()) ;
+            this.costoViajeTemporal.remove(aux);
+            mostrarCostosViajes () ;
+            mostrarTotalCostosViaje () ;
+        }
+        else{
+            this.mostrarMensaje("Debe seleccionar un costo de la lista !");
+        }
+    }//GEN-LAST:event_btnEliminarCostoAdiActionPerformed
+
+    private void btnEliminarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarViajeActionPerformed
+        if (this.listViajesCotizados.getSelectedIndex() != -1){
+            DefaultListModel dlm = (DefaultListModel) this.listViajesCotizados.getModel();
+            Viaje aux = (Viaje)dlm.getElementAt(this.listViajesCotizados.getSelectedIndex()) ;
+            this.viajesCotizados.remove(aux);
+            mostrarViajesCargados () ;
+        }
+        else{
+            this.mostrarMensaje("Debe seleccionar un viaje de la lista !");
+        }
+    }//GEN-LAST:event_btnEliminarViajeActionPerformed
+
+    // muestro los detalles del camion
+    private void btnDetalleCamionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleCamionActionPerformed
+        DetalleCamion auxVista = new DetalleCamion () ;
+        auxVista.completarInformacionCamion((Camion) this.cmbCamion.getSelectedItem()) ;
+        PrincipalUsuario.getInstancia().agregarVentanaDetalleCamion(auxVista);
+    }//GEN-LAST:event_btnDetalleCamionActionPerformed
+
     public void mostrarViajesCargados (){
         DefaultListModel dlmViajesCargadosAux = (DefaultListModel) this.listViajesCotizados.getModel() ;
         dlmViajesCargadosAux.clear(); 
         for (int i = 0 ; i < this.viajesCotizados.size() ; i ++){
              Viaje aux = this.viajesCotizados.get (i);
-             dlmViajesCargadosAux.addElement(aux.toString());
+             dlmViajesCargadosAux.addElement(aux);
         }
         this.listViajesCotizados.setModel(dlmViajesCargadosAux);
     }
