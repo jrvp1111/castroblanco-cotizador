@@ -68,9 +68,7 @@ public class AdminCotizacion
             for (int i2 = 0 ; i2 < auxCostosFinancieros.size() ; i2 ++){
                 CostoFinanciero auxCostoFinanciero = auxCostosFinancieros.get(i2);
                 float temporal = (((auxCostoFinanciero.getValorUnidad() * auxCostoFinanciero.getDepreciacion()) / 100) / auxCostoFinanciero.getVidaUtil()) / 12 ;
-                System.out.println("TEMPORAL: " + temporal);
                 costoTotal = costoTotal + ((cantDias * temporal) / 30) ;
-                System.out.println("TOTAL: " + costoTotal);
             }
         }
         return costoTotal ;
@@ -88,9 +86,5 @@ public class AdminCotizacion
             }
         }
         return costoTotal ;
-    }
-
-    public float calcularCostoOperativo (Cotizacion coti){
-        return 0 ;
     }
 }

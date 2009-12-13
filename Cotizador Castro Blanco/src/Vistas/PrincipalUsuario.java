@@ -30,6 +30,11 @@ public class PrincipalUsuario extends javax.swing.JFrame
         vista.setVisible(true);
     }
 
+    public void agregarVentanaDetalleCamion (DetalleCamion vista){
+        this.DesktopPrincipal.add(vista);
+        vista.setVisible(true);
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
