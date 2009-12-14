@@ -28,4 +28,39 @@ public class CotizacionDAO
                 DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
         }
     }
+
+
+    public Vector<Cotizacion> cargarTodas() {
+        Statement stmt = null;
+         Vector<Cotizacion> cot = null;
+        try {
+
+               cot = new Vector<Cotizacion>();
+                String query = "select * " +
+                        "from cotizaciones co " +
+                        "inner join clientes cl " +
+                        "on (co.cliTipoId = cl.tipoId and co.cliNumeroId = cl.numeroId);";
+
+                Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+                stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+
+                while(rs.next()){//TODO - VER LO DE RAZON SOCIAL O NOMBRE O AMBAS
+                    Cliente cli = new Cliente(rs.getString("tipoId"), rs.getInt("numeroId"), rs.getString("nombre"), rs.getString("apellido"), "RAZON SOCIAL", rs.getString("email"));
+                    Cotizacion c = new Cotizacion(rs.getBoolean("estado"), rs.getDate("fechaEmision"), 1 - (float) (rs.getFloat("costoOperativo")/rs.getFloat("precioVenta")), cli);
+                    c.setCostoOperativo(rs.getFloat("costoOperativo"));
+                    c.setNroCotizacion(rs.getInt("nroCotizacion"));
+                    c.setPrecioVenta(rs.getFloat("precioVenta"));
+                    cot.addElement(c);
+                }
+
+                return cot;
+        }catch(SQLException e) {
+                System.out.println(e.getMessage());
+        }finally {
+                DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
+                return cot;
+        }
+    }
+
 }
