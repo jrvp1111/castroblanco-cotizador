@@ -29,7 +29,7 @@ public class DetalleCamion extends javax.swing.JInternalFrame
 
         txtDetalle.setColumns(20);
         txtDetalle.setEditable(false);
-        txtDetalle.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        txtDetalle.setFont(new java.awt.Font("Monospaced", 1, 15)); // NOI18N
         txtDetalle.setRows(5);
         jScrollPane1.setViewportView(txtDetalle);
 
@@ -56,7 +56,7 @@ public class DetalleCamion extends javax.swing.JInternalFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnCerrar)
                 .addContainerGap())
         );
