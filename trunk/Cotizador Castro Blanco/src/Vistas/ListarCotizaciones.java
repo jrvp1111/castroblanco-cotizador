@@ -51,6 +51,7 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Listar Cotizaciones");
 
+        jTable1.setAutoCreateRowSorter(true);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Desde");
@@ -142,7 +143,7 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
                     .addComponent(radioDistancia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();

@@ -4,7 +4,7 @@ package Vistas;
 import Controladores.ActualizarCostosCONT;
 import Controladores.BuscarCamionCONT;
 import Controladores.BuscarClienteCONT;
-//import Controladores.ListarCotizacionesCONT;
+import Controladores.ListarCotizacionesCONT;
 import Modelos.AdminCamion;
 import Modelos.AdminCliente;
 import Modelos.AdminCostos;
@@ -118,8 +118,8 @@ public class PrincipalUsuario extends javax.swing.JFrame
     }//GEN-LAST:event_jMenuGenerarCotizacionActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       //ListarCotizacionesCONT controlador = new ListarCotizacionesCONT();
-       //this.DesktopPrincipal.add(controlador.getVista());
+       ListarCotizacionesCONT controlador = new ListarCotizacionesCONT();
+       this.DesktopPrincipal.add(controlador.getVista());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     // abro la primer ventana para seleccionar el camion
