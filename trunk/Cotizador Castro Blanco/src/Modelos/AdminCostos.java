@@ -25,7 +25,6 @@ public class AdminCostos
         for (int i1 = 0 ; i1 < auxCostosFijos.size() ; i1 ++){
             CostoFijo auxCostoFijo = auxCostosFijos.get(i1) ;
             if (auxCostoFijo.getNombre().compareTo(nombreCosto) == 0){
-                System.out.println("entro ...") ;
                 encontrados.add(auxCostoFijo);
             }
         }
@@ -33,7 +32,6 @@ public class AdminCostos
         for (int i2 = 0 ; i2 < auxCostosVariables.size() ; i2 ++){
             CostoVariable auxCostoVariable = auxCostosVariables.get(i2) ;
             if (auxCostoVariable.getNombre().compareTo(nombreCosto) == 0){
-                System.out.println("entro ...") ;
                 encontrados.add(auxCostoVariable);
             }
         }

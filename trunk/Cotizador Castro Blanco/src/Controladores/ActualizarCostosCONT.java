@@ -39,6 +39,15 @@ public class ActualizarCostosCONT
     }
 
     public void procesarBotonSeleccionarCosto (Costo costo){
-        // como hago para saber que tipo de objeto es este costo ? es fijo, variable o financiero ?
+        if (costo.getClass().getName().equals("Entidades.CostoFijo")){
+            System.out.println("FIJO");
+            this.vista.seteoCostosFijos(Boolean.TRUE);
+            this.vista.seteoCostosVariables(Boolean.FALSE);
+        }
+        if (costo.getClass().getName().equals("Entidades.CostoVariable")){
+            System.out.println("VARIBALE");
+            this.vista.seteoCostosFijos(Boolean.FALSE);
+            this.vista.seteoCostosVariables(Boolean.TRUE);
+        }
     }
 }

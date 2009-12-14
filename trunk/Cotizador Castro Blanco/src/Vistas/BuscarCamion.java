@@ -79,7 +79,7 @@ public class BuscarCamion extends javax.swing.JInternalFrame
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createTitledBorder("SELECCIONAR EL CAMION"));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 30));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 270));
 
         cmbCamion.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
         cmbCamion.addActionListener(new java.awt.event.ActionListener() {
