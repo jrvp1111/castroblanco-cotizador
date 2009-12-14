@@ -87,4 +87,8 @@ public class AdminCotizacion
         }
         return costoTotal ;
     }
+
+    public Vector<Cotizacion> obtenerCotizaciones(){
+        return this.cotizacionDAO.cargarTodas();
+    }
 }
