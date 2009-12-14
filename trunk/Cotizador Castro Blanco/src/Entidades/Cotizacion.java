@@ -98,4 +98,38 @@ public class Cotizacion
     public Vector<Viaje> getViajes (){
         return this.viajes ;
     }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setCostoOperativo(float costoOperativo) {
+        this.costoOperativo = costoOperativo;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    public void setMargenCotizacion(float margenCotizacion) {
+        this.margenCotizacion = margenCotizacion;
+    }
+
+    public void setNroCotizacion(int nroCotizacion) {
+        this.nroCotizacion = nroCotizacion;
+    }
+
+    public void setPrecioVenta(float precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    public void setViajes(Vector<Viaje> viajes) {
+        this.viajes = viajes;
+    }
+    
+
 }
