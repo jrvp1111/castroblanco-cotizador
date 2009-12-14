@@ -111,7 +111,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-       if (this.txtDatosCliente.equals("")){
+       if (this.txtDatosCliente.getText().equals("")){
            this.mostrarMensaje("Debe seleccionar al cliente que pide la cotizacion !");
            return ;
        }

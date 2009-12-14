@@ -1,9 +1,13 @@
 
 package Vistas;
 
+import Controladores.ActualizarCostosCONT;
+import Controladores.BuscarCamionCONT;
 import Controladores.BuscarClienteCONT;
 //import Controladores.ListarCotizacionesCONT;
+import Modelos.AdminCamion;
 import Modelos.AdminCliente;
+import Modelos.AdminCostos;
 
 public class PrincipalUsuario extends javax.swing.JFrame
 {
@@ -36,14 +40,19 @@ public class PrincipalUsuario extends javax.swing.JFrame
         vista.setVisible(true);
     }
 
+    public void agregarVentanaActualizarCostos (ActualizarCostos vista){
+        this.DesktopPrincipal.add(vista);
+        vista.setVisible(true);
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         DesktopPrincipal = new javax.swing.JDesktopPane();
         menuBarPrincipal = new javax.swing.JMenuBar();
-        jMenuCargarChofer = new javax.swing.JMenu();
-        jMenuChoferes = new javax.swing.JMenu();
+        jMenuCostos = new javax.swing.JMenu();
+        jMenuActualizarCostos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuGenerarCotizacion = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -53,11 +62,17 @@ public class PrincipalUsuario extends javax.swing.JFrame
 
         jScrollPane1.setViewportView(DesktopPrincipal);
 
-        jMenuCargarChofer.setText("Camiones");
-        menuBarPrincipal.add(jMenuCargarChofer);
+        jMenuCostos.setText("Costos");
 
-        jMenuChoferes.setText("Choferes");
-        menuBarPrincipal.add(jMenuChoferes);
+        jMenuActualizarCostos.setText("Actualizar Costos");
+        jMenuActualizarCostos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuActualizarCostosActionPerformed(evt);
+            }
+        });
+        jMenuCostos.add(jMenuActualizarCostos);
+
+        menuBarPrincipal.add(jMenuCostos);
 
         jMenu1.setText("Cotizacion");
 
@@ -107,11 +122,20 @@ public class PrincipalUsuario extends javax.swing.JFrame
        //this.DesktopPrincipal.add(controlador.getVista());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    // abro la primer ventana para seleccionar el camion
+    private void jMenuActualizarCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuActualizarCostosActionPerformed
+       BuscarCamion vista = new BuscarCamion () ;
+       AdminCamion modelo = new AdminCamion () ;
+       new BuscarCamionCONT (vista, modelo);
+       vista.inicializarVentana();
+       this.DesktopPrincipal.add(vista);
+    }//GEN-LAST:event_jMenuActualizarCostosActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane DesktopPrincipal;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenuCargarChofer;
-    private javax.swing.JMenu jMenuChoferes;
+    private javax.swing.JMenuItem jMenuActualizarCostos;
+    private javax.swing.JMenu jMenuCostos;
     private javax.swing.JMenuItem jMenuGenerarCotizacion;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;

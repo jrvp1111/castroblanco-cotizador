@@ -4,15 +4,20 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="menuBarPrincipal">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenuCargarChofer">
+        <Menu class="javax.swing.JMenu" name="jMenuCostos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Camiones"/>
+            <Property name="text" type="java.lang.String" value="Costos"/>
           </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuChoferes">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Choferes"/>
-          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuActualizarCostos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar Costos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuActualizarCostosActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>

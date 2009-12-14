@@ -29,10 +29,18 @@ public class Viaje
 
     @Override
     public String toString (){
-        return ("ORIGEN: " + this.origen.toString() + " (" + this.fechaSalida + ")" + "\n"
+        String X = "" ;
+        X = X + "ORIGEN: " + this.origen.toString() + " (" + this.fechaSalida + ")" + "\n"
               + "DESTINO: " + this.destino.toString() + " (" + this.fechaLlegada + ")" + "\n"
               + "DISTANCIA: " + this.distancia + " Km." + "\n"
-              + "CAMION: " + this.camion.toString()) ;
+              + "CAMION: " + this.camion.toString() + "\n"
+              + "MERCADERIA: " + this.descMercaderia + "\n"
+              + "COSTOS ADICIONALES: " + "\n" ;
+        for (int i = 0 ; i < this.costosViaje.size() ; i ++){
+            CostoViaje aux = this.costosViaje.get(i) ;
+            X = X + aux.toString() + "\n" ;
+        }
+        return X ;
     }
 
     public void agregarCostoViaje (CostoViaje c){

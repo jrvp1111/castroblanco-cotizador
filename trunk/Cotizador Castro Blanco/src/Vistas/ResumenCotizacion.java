@@ -32,7 +32,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         String X = "" ;
         for (int i = 0 ; i < viajes.size() ; i ++){
             Viaje aux = viajes.get(i) ;
-            X = X + aux.toString() ;
+            X = X + aux.toString() + "\n\n" ;
         }
         this.txtViajesCotizados.setText(X);
     }
@@ -92,6 +92,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 443, -1, 30));
 
         txtViajesCotizados.setColumns(20);
+        txtViajesCotizados.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         txtViajesCotizados.setRows(5);
         jScrollPane2.setViewportView(txtViajesCotizados);
 
