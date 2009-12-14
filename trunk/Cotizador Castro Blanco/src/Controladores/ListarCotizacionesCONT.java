@@ -104,6 +104,7 @@ public class ListarCotizacionesCONT {
             }
 
             csv.close();
+
         } catch (IOException ex) {
             Logger.getLogger(ListarCotizacionesCONT.class.getName()).log(Level.SEVERE, null, ex);
         }
