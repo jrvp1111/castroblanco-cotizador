@@ -12,9 +12,13 @@ import Entidades.ListarCotizacionesPrecio;
 import Modelos.AdminCotizacion;
 import Vistas.CotizacionTableModel;
 import Vistas.ListarCotizaciones;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -73,6 +77,38 @@ public class ListarCotizacionesCONT {
         Collections.sort(cotizaciones, new ListarCotizacionesFecha());
         this.ctm.setDatalist(cotizaciones);
         
+    }
+
+    public void exportarExcel() {
+       com.csvreader.CsvWriter csv = new com.csvreader.CsvWriter("export.csv");
+        try {
+            csv.write("Nro Cotizacion");
+            csv.write("Cliente");
+            csv.write("Costo Operativo");
+            csv.write("Precio Operativo");
+            csv.write("Estado");
+            csv.write("Fecha");
+            csv.endRecord();
+            //ITERATOR PATTERN
+            Iterator it = ctm.getDatalist().iterator();
+
+            while (it.hasNext()){
+                Cotizacion c = (Cotizacion) it.next();
+                csv.write(Integer.toString(c.getNroCotizacion()));
+                csv.write(c.getCliente().getNombre()+" "+c.getCliente().getApellido());
+                csv.write(Float.toString(c.getCostoOperativo()));
+                csv.write(Float.toString(c.getPrecioVenta()));
+                csv.write(c.getEstado()?"Aceptada":"Rechazada");
+                csv.write(c.getFechaEmision().toString());
+                csv.endRecord();
+            }
+
+            csv.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ListarCotizacionesCONT.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }
 
 }

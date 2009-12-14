@@ -45,6 +45,7 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
         radioFecha = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -95,6 +96,13 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Filtrar por Fecha:");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/excel_icon.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,6 +110,7 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 769, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +152,9 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
                     .addComponent(radioDistancia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,12 +198,17 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
         this.controlador.procesarFiltrosFecha(this.calendarDesde.getDate(), this.calendarHasta.getDate());
     }//GEN-LAST:event_calendarHastaDateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.controlador.exportarExcel();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.freixas.jcalendar.JCalendarCombo calendarDesde;
     private org.freixas.jcalendar.JCalendarCombo calendarHasta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
