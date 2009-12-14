@@ -151,16 +151,19 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
     private void radioPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioPrecioActionPerformed
         this.radioDistancia.setSelected(false);
         this.radioFecha.setSelected(false);
+        this.controlador.ordenarPorPrecio();
     }//GEN-LAST:event_radioPrecioActionPerformed
 
     private void radioDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDistanciaActionPerformed
         this.radioPrecio.setSelected(false);
         this.radioFecha.setSelected(false);
+        this.controlador.ordenarPorDistancia();
     }//GEN-LAST:event_radioDistanciaActionPerformed
 
     private void radioFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFechaActionPerformed
         this.radioPrecio.setSelected(false);
         this.radioDistancia.setSelected(false);
+        this.controlador.ordenarPorFecha();
     }//GEN-LAST:event_radioFechaActionPerformed
 
     private void calendarDesdeDateChanged(org.freixas.jcalendar.DateEvent evt) {//GEN-FIRST:event_calendarDesdeDateChanged
