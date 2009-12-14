@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Vector;
 
 public class CotizacionDAO
@@ -32,7 +33,6 @@ public class CotizacionDAO
                 DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
         }
     }
-
 
     public Vector<Cotizacion> cargarTodas() {
         Statement stmt = null;
@@ -66,5 +66,4 @@ public class CotizacionDAO
                 return cot;
         }
     }
-
 }
