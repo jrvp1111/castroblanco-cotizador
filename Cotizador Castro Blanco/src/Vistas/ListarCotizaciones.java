@@ -97,6 +97,8 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
         jLabel4.setText("Filtrar por Fecha:");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/excel_icon.png"))); // NOI18N
+        jButton1.setToolTipText("Exportar a MS Excel");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -154,7 +156,7 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -200,6 +202,7 @@ public class ListarCotizaciones extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        this.controlador.exportarExcel();
+       JOptionPane.showMessageDialog(null, "El archivo \"export.csv\" ha sido creado correctamente en su directorio de trabajo.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
