@@ -2,6 +2,7 @@
 package Modelos;
 
 import DAO.CotizacionDAO;
+import DAO.ViajeDAO;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
@@ -14,16 +15,28 @@ import java.util.Vector;
 public class AdminCotizacion
 {
     private CotizacionDAO cotizacionDAO ;
+    private ViajeDAO viajeDAO ;
 
     private AdminCamion adminCamion ;
 
     public AdminCotizacion (){
         this.cotizacionDAO = new CotizacionDAO () ;
+        this.viajeDAO = new ViajeDAO () ;
         this.adminCamion = new AdminCamion () ;
     }
 
     public void guardarCotizacion (Cotizacion c){
         this.cotizacionDAO.guardar(c);
+        int nroCotizacion = this.cotizacionDAO.obtenerUltimoNroCotizacion() ;
+        Vector<Viaje> viajesCotizados = c.getViajes() ;
+        for (int i = 0 ; i < viajesCotizados.size() ; i ++){
+            Viaje aux = viajesCotizados.get(i) ;
+            this.viajeDAO.guardar(aux, nroCotizacion);
+        }
+    }
+
+    public int obtenerNroCotizacion (){
+        return this.cotizacionDAO.obtenerUltimoNroCotizacion();
     }
 
     public float calcularCostosFijos (Cotizacion coti){

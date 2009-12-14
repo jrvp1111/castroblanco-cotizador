@@ -137,22 +137,22 @@ CREATE TABLE OrdenesViajes
 
 CREATE TABLE Viajes
 (
-	nroViaje int not null identity (1,1),
+	nroViaje int not null identity (1000,1),
 	nroCotizacion int not null,
 	paisOrigen varchar (20) not null,
-	proviciaOrigen	varchar (20) not null,
+	provinciaOrigen	varchar (20) not null,
 	ciudadOrigen varchar (20) not null,
 	direccionOrigen	varchar (20) not null,
 	paisDestino varchar (20) not null,
-	proviciaDestino	varchar (20) not null,
+	provinciaDestino varchar (20) not null,
 	ciudadDestino varchar (20) not null,
 	direccionDestino varchar (20) not null,	
 	fechaSalida datetime not null,
 	fechaLlegada datetime not null,
 	distancia int not null,
-	mercaderia varchar (20) not null,
+	mercaderia varchar (200) not null,
 	camionViaje varchar (20) not null,	-- patente
-	choferViaje	int not null,			-- documento
+	choferViaje int not null,		-- documento
 	constraint pk_viaje primary key (nroViaje),
 	constraint fk_viaje_cotiz foreign key (nroCotizacion) references Cotizaciones (nroCotizacion),
 	constraint fk_viaje_camion foreign key (camionViaje) references Camiones (patente),
@@ -214,6 +214,9 @@ CREATE TABLE UsuariosPermisos
 INSERT INTO Camiones VALUES ('FED-925','Ford','SE1200',10,15)
 INSERT INTO Camiones VALUES ('ETG-108','Volskwagen','RX1300',10,12)
 INSERT INTO Camiones VALUES ('GXE-325','Renault','TGZ20',12,10)
+
+INSERT INTO Choferes VALUES (30618628 , 'Juan' , 'Perez' , '9 de julio 3253' , '4135-4820' , '553*4884')
+INSERT INTO Choferes VALUES (29318682 , 'Damian' , 'Gomez' , '25 de mayo 285' , '4281-9544' , '208*39635')
 
 INSERT INTO Usuarios VALUES ('TomasCereminati' , 'tc')
 INSERT INTO Usuarios VALUES ('ColoCastro' , 'cc')
