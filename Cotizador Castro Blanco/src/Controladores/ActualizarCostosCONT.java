@@ -4,6 +4,7 @@ package Controladores;
 import Entidades.Camion;
 import Entidades.Costo;
 import Entidades.CostoFijo;
+import Entidades.CostoVariable;
 import Modelos.AdminCostos;
 import Vistas.ActualizarCostos;
 import java.util.Vector;
@@ -42,12 +43,18 @@ public class ActualizarCostosCONT
         if (costo.getClass().getName().equals("Entidades.CostoFijo")){
             System.out.println("FIJO");
             this.vista.seteoCostosFijos(Boolean.TRUE);
+            this.vista.completarDatosFijo((CostoFijo) costo);
+            this.vista.setCostoSeleccionado(costo);
             this.vista.seteoCostosVariables(Boolean.FALSE);
+            this.vista.limpioVentanaVariable();
         }
         if (costo.getClass().getName().equals("Entidades.CostoVariable")){
             System.out.println("VARIBALE");
             this.vista.seteoCostosFijos(Boolean.FALSE);
+            this.vista.limpioVentanaFijo();
             this.vista.seteoCostosVariables(Boolean.TRUE);
+            this.vista.completarDatosVariable((CostoVariable) costo);
+            this.vista.setCostoSeleccionado(costo);
         }
     }
 }

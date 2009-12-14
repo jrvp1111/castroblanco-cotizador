@@ -4,9 +4,14 @@ package Vistas;
 import Controladores.ActualizarCostosCONT;
 import Entidades.Camion;
 import Entidades.Costo;
+import Entidades.CostoFijo;
+import Entidades.CostoVariable;
 import Modelos.AdminCostos;
+import java.util.Calendar;
+import java.sql.Date;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 public class ActualizarCostos extends javax.swing.JInternalFrame
@@ -15,6 +20,8 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
     private AdminCostos modelo;
 
     private DefaultListModel dlmViajesEncontrados = new DefaultListModel();
+
+    private Costo costoSeleccionado ;
 
     public ActualizarCostos() {
         initComponents();
@@ -28,6 +35,18 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
 
     public void setModelo(AdminCostos m) {
       this.modelo = m;
+    }
+
+    public void setCostoSeleccionado (Costo c){
+        this.costoSeleccionado = c ;
+    }
+
+    public Costo getCostoSeleccionado (){
+        return this.costoSeleccionado ;
+    }
+
+    public void mostrarMensaje(String msg) {
+      JOptionPane.showMessageDialog(rootPane, msg);
     }
 
     public void inicializarVentana (){
@@ -52,6 +71,37 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         this.txtPrecioUnitarioVariable.setEnabled(estado);
         this.btnGuardarVariable.setEnabled(estado);
         this.btnCancelarVariable.setEnabled(estado);
+    }
+
+    public void limpioVentanaFijo (){
+        this.txtNombreFijo.setText("");
+        this.txtValorFijo.setText("");
+    }
+
+    public void limpioVentanaVariable (){
+        this.txtNombreVariable.setText("");
+        this.txtCantidadVariable.setText("");
+        this.txtDuracionVariable.setText("");
+        this.txtPrecioUnitarioVariable.setText("");
+    }
+
+    public void completarDatosFijo (CostoFijo fijo){
+        this.txtNombreFijo.setText(fijo.getNombre());
+        this.txtValorFijo.setText(String.valueOf(fijo.getValor())) ;
+    }
+
+    public void completarDatosVariable (CostoVariable variable){
+        this.txtNombreVariable.setText(variable.getNombre());
+        this.txtDuracionVariable.setText(String.valueOf(variable.getDuracion()));
+        this.txtCantidadVariable.setText(String.valueOf(variable.getCantidad()));
+        this.txtPrecioUnitarioVariable.setText(String.valueOf(variable.getPrecioUnitario()));
+    }
+
+    public void limpiarVentanaEntera (){
+        this.limpioVentanaFijo();
+        this.limpioVentanaVariable();
+        this.seteoCostosFijos(false);
+        this.seteoCostosVariables(false);
     }
 
     public void cargarCostosEnLista (Vector<Costo> costosEncontrados){
@@ -95,6 +145,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         txtPrecioUnitarioVariable = new javax.swing.JTextField();
         btnGuardarFijo = new javax.swing.JButton();
         btnCancelarFijo = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
 
         setClosable(true);
         setIconifiable(true);
@@ -179,10 +230,18 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(txtPrecioUnitarioVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 130, -1));
 
         btnGuardarFijo.setText("GUARDAR");
+        btnGuardarFijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarFijoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardarFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 90, -1));
 
         btnCancelarFijo.setText("CANCELAR");
         getContentPane().add(btnCancelarFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
+
+        jSeparator4.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO FINANCIERO"));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 400, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,6 +258,21 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         Costo costo = (Costo)dlm.getElementAt(this.listCostosEncontrados.getSelectedIndex()) ;
         this.controlador.procesarBotonSeleccionarCosto(costo);
     }//GEN-LAST:event_btnSeleccionarActionPerformed
+
+    // guardar los cambios del costo fijo
+    private void btnGuardarFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarFijoActionPerformed
+        CostoFijo aux = (CostoFijo) this.costoSeleccionado ;
+        aux.setNombre(this.txtNombreFijo.getText());
+        aux.setValor(Float.valueOf(this.txtValorFijo.getText()));
+        Calendar cal = Calendar.getInstance();
+        Date fechaActual = new Date(cal.getTimeInMillis());
+        aux.setActualizacion(fechaActual);
+        //
+        this.modelo.actualizarCostoFijoCamion(aux, this.controlador.getCamion().getPatente());
+        this.mostrarMensaje("El costo se ha actualizado correctamente");
+        //
+        limpiarVentanaEntera () ;
+    }//GEN-LAST:event_btnGuardarFijoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -219,6 +293,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblCamionActualizar;
     private javax.swing.JList listCostosEncontrados;
     private javax.swing.JSeparator sepCostoFijo;
