@@ -33,7 +33,6 @@ public class CargarViajesCONT
         Date fechaActual = new Date(cal.getTimeInMillis());
         // falta ver de donde sale el margen de ganancia de la cotizacion 
         this.coti = new Cotizacion (false , fechaActual , (float)0.25 , this.cli) ;
-        //this.modelo.guardarCotizacion(coti);
     }
 
     public void guardarCotizacion (Cotizacion c){
