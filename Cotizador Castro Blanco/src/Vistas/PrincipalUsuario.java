@@ -2,7 +2,7 @@
 package Vistas;
 
 import Controladores.BuscarClienteCONT;
-import Controladores.ListarCotizacionesCONT;
+//import Controladores.ListarCotizacionesCONT;
 import Modelos.AdminCliente;
 
 public class PrincipalUsuario extends javax.swing.JFrame
@@ -85,15 +85,11 @@ public class PrincipalUsuario extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1124, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 938, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 949, Short.MAX_VALUE)
         );
 
         pack();
@@ -107,8 +103,8 @@ public class PrincipalUsuario extends javax.swing.JFrame
     }//GEN-LAST:event_jMenuGenerarCotizacionActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       ListarCotizacionesCONT controlador = new ListarCotizacionesCONT();
-       this.DesktopPrincipal.add(controlador.getVista());
+       //ListarCotizacionesCONT controlador = new ListarCotizacionesCONT();
+       //this.DesktopPrincipal.add(controlador.getVista());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -3,6 +3,7 @@ package Modelos;
 
 import DAO.CamionDAO;
 import DAO.CostosDAO;
+import DAO.ViajeDAO;
 import Entidades.Camion;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
