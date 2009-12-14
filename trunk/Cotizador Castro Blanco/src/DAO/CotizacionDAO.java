@@ -1,10 +1,14 @@
 
 package DAO;
 
+import Entidades.Cliente;
 import Entidades.Cotizacion;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
 public class CotizacionDAO
 {
@@ -32,7 +36,7 @@ public class CotizacionDAO
 
     public Vector<Cotizacion> cargarTodas() {
         Statement stmt = null;
-         Vector<Cotizacion> cot = null;
+        Vector<Cotizacion> cot = null;
         try {
 
                cot = new Vector<Cotizacion>();
