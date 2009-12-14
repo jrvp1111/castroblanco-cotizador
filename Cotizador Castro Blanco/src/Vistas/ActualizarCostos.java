@@ -36,6 +36,24 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         this.lblCamionActualizar.setText("CAMION A ACTUALIZAR: " + cam.toString());
     }
 
+    // segun el estado, activo o desavtivo los controles de cada uno
+    public void seteoCostosFijos(Boolean estado){
+        this.txtNombreFijo.setEnabled(estado);
+        this.txtValorFijo.setEnabled(estado);
+        this.btnGuardarFijo.setEnabled(estado);
+        this.btnCancelarFijo.setEnabled(estado);
+    }
+
+    // segun el estado, activo o desavtivo los controles de cada uno
+    public void seteoCostosVariables(Boolean estado){
+        this.txtNombreVariable.setEnabled(estado);
+        this.txtCantidadVariable.setEnabled(estado);
+        this.txtDuracionVariable.setEnabled(estado);
+        this.txtPrecioUnitarioVariable.setEnabled(estado);
+        this.btnGuardarVariable.setEnabled(estado);
+        this.btnCancelarVariable.setEnabled(estado);
+    }
+
     public void cargarCostosEnLista (Vector<Costo> costosEncontrados){
         DefaultListModel modeloLista = (DefaultListModel) this.listCostosEncontrados.getModel() ;
         modeloLista.clear() ;
@@ -64,6 +82,17 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         txtNombreFijo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtValorFijo = new javax.swing.JTextField();
+        btnGuardarVariable = new javax.swing.JButton();
+        btnCancelarVariable = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        txtNombreVariable = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtDuracionVariable = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtCantidadVariable = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtPrecioUnitarioVariable = new javax.swing.JTextField();
         btnGuardarFijo = new javax.swing.JButton();
         btnCancelarFijo = new javax.swing.JButton();
 
@@ -124,6 +153,31 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
         getContentPane().add(txtValorFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 130, -1));
 
+        btnGuardarVariable.setText("GUARDAR");
+        getContentPane().add(btnGuardarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 90, -1));
+
+        btnCancelarVariable.setText("CANCELAR");
+        getContentPane().add(btnCancelarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
+
+        jSeparator3.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO VARIABLE"));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 400, 200));
+
+        jLabel5.setText("NOMBRE:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+        getContentPane().add(txtNombreVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 130, -1));
+
+        jLabel6.setText("DURACION: (Km)");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
+        getContentPane().add(txtDuracionVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 130, -1));
+
+        jLabel7.setText("CANTIDAD: (Unidades) ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        getContentPane().add(txtCantidadVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 130, -1));
+
+        jLabel8.setText("PRECIO UNITARIO:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+        getContentPane().add(txtPrecioUnitarioVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 130, -1));
+
         btnGuardarFijo.setText("GUARDAR");
         getContentPane().add(btnGuardarFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 90, -1));
 
@@ -149,20 +203,31 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelarFijo;
+    private javax.swing.JButton btnCancelarVariable;
     private javax.swing.JButton btnGuardarFijo;
+    private javax.swing.JButton btnGuardarVariable;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblCamionActualizar;
     private javax.swing.JList listCostosEncontrados;
     private javax.swing.JSeparator sepCostoFijo;
     private javax.swing.JTextField txtBuscarCosto;
+    private javax.swing.JTextField txtCantidadVariable;
+    private javax.swing.JTextField txtDuracionVariable;
     private javax.swing.JTextField txtNombreFijo;
+    private javax.swing.JTextField txtNombreVariable;
+    private javax.swing.JTextField txtPrecioUnitarioVariable;
     private javax.swing.JTextField txtValorFijo;
     // End of variables declaration//GEN-END:variables
 }
