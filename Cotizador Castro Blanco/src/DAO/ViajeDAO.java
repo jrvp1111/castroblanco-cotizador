@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.Vector;
 
 
@@ -95,7 +96,7 @@ public class ViajeDAO
     }
 
     public boolean verificarCamionDisponibleParaFechas (String patente , Date fechaSalida) {
-    boolean disponible = false ;
+    boolean disponible = true ;
     PreparedStatement stmt = null;
     ResultSet rs = null ;
         try {
