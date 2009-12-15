@@ -134,6 +134,14 @@ public class Sistema
         return Sistema.adminCostos.obtenerCostosPorNombre(nombreCosto, patente) ;
     }
 
+    public Date obtenerFechaUltimaActualizacionFijo (){
+        return Sistema.adminCostos.obtenerFechaUltimaActualizacionFijo() ;
+    }
+
+    public Date obtenerFechaUltimaActualizacionVariable (){
+        return Sistema.adminCostos.obtenerFechaUltimaActualizacionVariable() ;
+    }
+
     /* --- ADMIN CLIENTE --- */
     
     public Cliente obtenerPorNombreCliente (String tipoId , int numeroId){
