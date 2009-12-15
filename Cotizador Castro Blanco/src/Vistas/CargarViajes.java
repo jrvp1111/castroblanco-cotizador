@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 public class CargarViajes extends javax.swing.JInternalFrame
 {
@@ -426,8 +425,10 @@ public class CargarViajes extends javax.swing.JInternalFrame
         java.sql.Date fSalidaSql = new java.sql.Date(fechaSalida.getTime());
         if (Sistema.getInstancia().verificarCamionDisponibleParaFechas(aux.getPatente() , fSalidaSql) == false){
             this.mostrarMensaje("El camion ya esta ocupado para esa fecha ! Seleccione otro !");
+            this.btnAgregarViaje.setEnabled(false);
             return ;
         }
+        this.btnAgregarViaje.setEnabled(true);
     }//GEN-LAST:event_cmbCamionActionPerformed
 
     public void mostrarViajesCargados (){
