@@ -1,13 +1,9 @@
 
 package Vistas;
 
-import Controladores.ActualizarCostosCONT;
 import Controladores.BuscarCamionCONT;
 import Controladores.BuscarClienteCONT;
 import Controladores.ListarCotizacionesCONT;
-import Modelos.AdminCamion;
-import Modelos.AdminCliente;
-import Modelos.AdminCostos;
 import Modelos.Sistema;
 
 public class PrincipalUsuario extends javax.swing.JFrame
@@ -128,7 +124,6 @@ public class PrincipalUsuario extends javax.swing.JFrame
     // abro la primer ventana para seleccionar el camion
     private void jMenuActualizarCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuActualizarCostosActionPerformed
        BuscarCamion vista = new BuscarCamion () ;
-       //AdminCamion modelo = new AdminCamion () ;
        Sistema modelo = Sistema.getInstancia() ;
        new BuscarCamionCONT (vista, modelo);
        vista.inicializarVentana();

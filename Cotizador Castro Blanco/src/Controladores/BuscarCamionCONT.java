@@ -2,8 +2,6 @@
 package Controladores;
 
 import Entidades.Camion;
-import Modelos.AdminCamion;
-import Modelos.AdminCostos;
 import Modelos.Sistema;
 import Vistas.ActualizarCostos;
 import Vistas.BuscarCamion;
@@ -12,7 +10,6 @@ import Vistas.PrincipalUsuario;
 public class BuscarCamionCONT
 {
     private BuscarCamion vista;
-    //private AdminCamion modelo;
     private Sistema modelo ;
 
     private Camion cam ;
@@ -34,7 +31,6 @@ public class BuscarCamionCONT
 
     public void procesarBotonSiguiente (){
        ActualizarCostos auxVista = new ActualizarCostos () ;
-       //AdminCostos auxModelo = new AdminCostos () ;
        Sistema auxModelo = Sistema.getInstancia() ;
        ActualizarCostosCONT actualizarcostosCONT = new ActualizarCostosCONT(auxVista, auxModelo);
        this.vista.cerrar();

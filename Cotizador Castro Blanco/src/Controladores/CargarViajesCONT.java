@@ -4,8 +4,6 @@ package Controladores;
 import Entidades.Cliente;
 import Entidades.Cotizacion;
 import Entidades.Viaje;
-import Modelos.AdminCotizacion;
-import Modelos.AdminViaje;
 import Modelos.Sistema;
 import Vistas.CargarViajes;
 import Vistas.PrincipalUsuario;
@@ -16,7 +14,6 @@ import java.util.Calendar;
 public class CargarViajesCONT
 {
     private CargarViajes vista;
-    //private AdminViaje modelo;
     private Sistema modelo ;
 
     private Cotizacion coti ;
@@ -68,7 +65,6 @@ public class CargarViajesCONT
 
     public void procesarBotonSiguiente (){
        ResumenCotizacion auxVista = new ResumenCotizacion () ;
-       //AdminCotizacion auxModelo = new AdminCotizacion () ;
        Sistema auxModelo = Sistema.getInstancia() ;
        ResumenCotizacionCONT resumencotizacionCONT = new ResumenCotizacionCONT(auxVista, auxModelo);
        this.vista.cerrar();

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Vistas;
 
@@ -9,15 +5,10 @@ import Entidades.Cotizacion;
 import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author candelas
- */
-public class CotizacionTableModel extends AbstractTableModel{
-
+public class CotizacionTableModel extends AbstractTableModel
+{
 	private String [] columnNames = {"Nro", "Cliente",  "Distancia", "Costo Operativo", "Precio Venta", "Estado",  "Fecha"};
 	private Vector<Cotizacion> datalist = new Vector<Cotizacion>();
-
 
 	public CotizacionTableModel() {
 
@@ -66,8 +57,7 @@ public class CotizacionTableModel extends AbstractTableModel{
 		case 2:
                         return c.calcularDistanciaTotal()+ " km";
                 case 3:
-                        return c.getCostoOperativo();
-                        
+                        return c.getCostoOperativo();     
                 case 4:
 			return c.getPrecioVenta();
                 case 5:
@@ -78,7 +68,6 @@ public class CotizacionTableModel extends AbstractTableModel{
 			return null;
 		}
 	}
-
 
 	public Vector<Cotizacion> getDatalist() {
 		return datalist;

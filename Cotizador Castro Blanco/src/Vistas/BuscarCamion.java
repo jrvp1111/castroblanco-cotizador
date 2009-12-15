@@ -3,7 +3,6 @@ package Vistas;
 
 import Controladores.BuscarCamionCONT;
 import Entidades.Camion;
-import Modelos.AdminCamion;
 import Modelos.Sistema;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -11,7 +10,6 @@ import javax.swing.JOptionPane;
 public class BuscarCamion extends javax.swing.JInternalFrame
 {
     private BuscarCamionCONT controlador;
-    //private AdminCamion modelo;
     private Sistema modelo ;
 
     public BuscarCamion() {

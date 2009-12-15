@@ -2,14 +2,12 @@
 package Controladores;
 
 import Entidades.Cotizacion;
-import Modelos.AdminCotizacion;
 import Modelos.Sistema;
 import Vistas.ResumenCotizacion;
 
 public class ResumenCotizacionCONT
 {
     private ResumenCotizacion vista;
-    //private AdminCotizacion modelo;
     private Sistema modelo ;
 
     private Cotizacion coti ;

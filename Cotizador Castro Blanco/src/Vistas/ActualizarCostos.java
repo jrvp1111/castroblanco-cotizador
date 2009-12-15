@@ -19,7 +19,6 @@ import javax.swing.ListModel;
 public class ActualizarCostos extends javax.swing.JInternalFrame
 {
     private ActualizarCostosCONT controlador;
-    //private AdminCostos modelo;
     private Sistema modelo ;
 
     private DefaultListModel dlmViajesEncontrados = new DefaultListModel();

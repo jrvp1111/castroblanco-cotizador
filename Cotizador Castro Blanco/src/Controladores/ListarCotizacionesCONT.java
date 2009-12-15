@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Controladores;
 
@@ -20,12 +16,9 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author candelas
- */
-public class ListarCotizacionesCONT {
 
+public class ListarCotizacionesCONT
+{
     private CotizacionTableModel ctm;
     private AdminCotizacion modelo;
     private ListarCotizaciones vista;
@@ -110,8 +103,5 @@ public class ListarCotizacionesCONT {
         } catch (IOException ex) {
             Logger.getLogger(ListarCotizacionesCONT.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
-
 }
