@@ -57,11 +57,6 @@ public class ViajeDAO
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            if (rs.next())
-                System.out.println("hay result");
-            else
-                System.out.println("no hay nada ");
-            
             while(rs.next()){
                 Ubicacion origen = new Ubicacion(rs.getString("paisOrigen"), rs.getString("proviciaOrigen"), rs.getString("ciudadOrigen"), rs.getString("direccionOrigen"));//pais, prov, ciudad, direccion
                 Ubicacion destino = new Ubicacion(rs.getString("paisDestino"), rs.getString("proviciaDestino"), rs.getString("ciudadDestino"), rs.getString("direccionDestino"));//pais, prov, ciudad, direccion

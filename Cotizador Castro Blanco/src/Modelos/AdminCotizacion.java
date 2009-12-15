@@ -103,10 +103,12 @@ public class AdminCotizacion
 
     public Vector<Cotizacion> obtenerCotizaciones(){
         Vector<Cotizacion> cargadas = this.cotizacionDAO.cargarTodas();
+        Vector<Viaje>vs = null;
         for (int i=0; i<cargadas.size(); i++){
             Cotizacion c = cargadas.elementAt(i);
-            Vector<Viaje>vs = viajeDAO.obtener(c.getNroCotizacion());
-            c.setViajes(vs);
+            vs = viajeDAO.obtener(c.getNroCotizacion());
+            System.out.println("en obtener cotizaciones el tamanio es "+Integer.toString(vs.size()));
+            cargadas.elementAt(i).setViajes(vs);
             //cargadas.elementAt(i).setViajes(viajeDAO.obtener(cargadas.elementAt(i).getNroCotizacion()));
         }
         return cargadas;

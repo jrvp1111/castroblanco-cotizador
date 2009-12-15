@@ -64,10 +64,9 @@ public class CotizacionTableModel extends AbstractTableModel{
 		case 1:
 			return c.getCliente().getNombre()+" "+c.getCliente().getApellido();
 		case 2:
-                        return c.calcularDistanciaTotal();
-
+                        return c.calcularDistanciaTotal()+ " km";
                 case 3:
-                    return c.getCostoOperativo();
+                        return c.getCostoOperativo();
                         
                 case 4:
 			return c.getPrecioVenta();
