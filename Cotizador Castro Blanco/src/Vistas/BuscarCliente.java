@@ -4,12 +4,14 @@ package Vistas;
 import Controladores.BuscarClienteCONT;
 import Entidades.Cliente;
 import Modelos.AdminCliente;
+import Modelos.Sistema;
 import javax.swing.JOptionPane;
 
 public class BuscarCliente extends javax.swing.JInternalFrame
 {
     private BuscarClienteCONT controlador;
-    private AdminCliente modelo;
+    //private AdminCliente modelo;
+    private Sistema modelo ;
 
     public BuscarCliente() {
         initComponents();
@@ -31,7 +33,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame
       this.controlador = c;
     }
 
-    public void setModelo(AdminCliente m) {
+    public void setModelo(Sistema m) {
       this.modelo = m;
     }
 

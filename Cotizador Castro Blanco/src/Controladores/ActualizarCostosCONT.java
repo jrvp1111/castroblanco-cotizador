@@ -7,17 +7,19 @@ import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
 import Modelos.AdminCostos;
+import Modelos.Sistema;
 import Vistas.ActualizarCostos;
 import java.util.Vector;
 
 public class ActualizarCostosCONT
 {
     private ActualizarCostos vista;
-    private AdminCostos modelo;
+    //private AdminCostos modelo;
+    private Sistema modelo ;
 
     private Camion cam ;
 
-    public ActualizarCostosCONT(ActualizarCostos v, AdminCostos m) {
+    public ActualizarCostosCONT(ActualizarCostos v, Sistema m) {
         this.vista = v;
         this.modelo = m;
         vista.setControlador(this);

@@ -3,16 +3,18 @@ package Controladores;
 
 import Entidades.Cotizacion;
 import Modelos.AdminCotizacion;
+import Modelos.Sistema;
 import Vistas.ResumenCotizacion;
 
 public class ResumenCotizacionCONT
 {
     private ResumenCotizacion vista;
-    private AdminCotizacion modelo;
+    //private AdminCotizacion modelo;
+    private Sistema modelo ;
 
     private Cotizacion coti ;
 
-    public ResumenCotizacionCONT(ResumenCotizacion v, AdminCotizacion m) {
+    public ResumenCotizacionCONT(ResumenCotizacion v, Sistema m) {
         this.vista = v;
         this.modelo = m;
         vista.setControlador(this);

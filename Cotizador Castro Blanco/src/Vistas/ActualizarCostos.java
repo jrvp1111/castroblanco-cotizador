@@ -8,6 +8,7 @@ import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
 import Modelos.AdminCostos;
+import Modelos.Sistema;
 import java.util.Calendar;
 import java.sql.Date;
 import java.util.Vector;
@@ -18,7 +19,8 @@ import javax.swing.ListModel;
 public class ActualizarCostos extends javax.swing.JInternalFrame
 {
     private ActualizarCostosCONT controlador;
-    private AdminCostos modelo;
+    //private AdminCostos modelo;
+    private Sistema modelo ;
 
     private DefaultListModel dlmViajesEncontrados = new DefaultListModel();
 
@@ -34,7 +36,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
       this.controlador = c;
     }
 
-    public void setModelo(AdminCostos m) {
+    public void setModelo(Sistema m) {
       this.modelo = m;
     }
 

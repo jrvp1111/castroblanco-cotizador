@@ -7,6 +7,7 @@ import Entidades.CostoViaje;
 import Entidades.Ubicacion;
 import Entidades.Viaje;
 import Modelos.AdminViaje;
+import Modelos.Sistema;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
@@ -15,7 +16,8 @@ import javax.swing.JOptionPane;
 public class CargarViajes extends javax.swing.JInternalFrame
 {
     private CargarViajesCONT controlador;
-    private AdminViaje modelo;
+    //private AdminViaje modelo;
+    private Sistema modelo ;
 
     private DefaultListModel dlmCostoViaje = new DefaultListModel();
     private DefaultListModel dlmViajesCargados = new DefaultListModel ();
@@ -40,7 +42,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
       this.controlador = c;
     }
 
-    public void setModelo(AdminViaje m) {
+    public void setModelo(Sistema m) {
       this.modelo = m;
     }
 

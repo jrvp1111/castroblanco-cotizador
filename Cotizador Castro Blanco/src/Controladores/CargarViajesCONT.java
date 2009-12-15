@@ -6,6 +6,7 @@ import Entidades.Cotizacion;
 import Entidades.Viaje;
 import Modelos.AdminCotizacion;
 import Modelos.AdminViaje;
+import Modelos.Sistema;
 import Vistas.CargarViajes;
 import Vistas.PrincipalUsuario;
 import Vistas.ResumenCotizacion;
@@ -15,13 +16,14 @@ import java.util.Calendar;
 public class CargarViajesCONT
 {
     private CargarViajes vista;
-    private AdminViaje modelo;
+    //private AdminViaje modelo;
+    private Sistema modelo ;
 
     private Cotizacion coti ;
 
     private Cliente cli ;
 
-    public CargarViajesCONT (CargarViajes v, AdminViaje m) {
+    public CargarViajesCONT (CargarViajes v, Sistema m) {
         this.vista = v;
         this.modelo = m;
         vista.setControlador(this);
@@ -66,7 +68,8 @@ public class CargarViajesCONT
 
     public void procesarBotonSiguiente (){
        ResumenCotizacion auxVista = new ResumenCotizacion () ;
-       AdminCotizacion auxModelo = new AdminCotizacion () ;
+       //AdminCotizacion auxModelo = new AdminCotizacion () ;
+       Sistema auxModelo = Sistema.getInstancia() ;
        ResumenCotizacionCONT resumencotizacionCONT = new ResumenCotizacionCONT(auxVista, auxModelo);
        this.vista.cerrar();
        // le dejo la refencia de la cotizacion activa
