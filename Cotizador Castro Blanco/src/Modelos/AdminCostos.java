@@ -20,6 +20,10 @@ public class AdminCostos
         this.costosDAO.actualizarCostoFijoCamion(fijo, patente);
     }
 
+    public void actualizarCostoVariableCamion (CostoVariable variable , String patente){
+        this.costosDAO.actualizarCostoVariableCamion(variable, patente);
+    }
+
     public Vector<Costo> obtenerCostosPorNombre (String nombreCosto , String patente){
         Vector<Costo> encontrados = new Vector<Costo> ();
         List<CostoFijo> auxCostosFijos = this.costosDAO.obtenerCostosFijosCamion(patente) ;
