@@ -154,7 +154,6 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         jLabel2 = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         lblCamionActualizar = new javax.swing.JLabel();
-        sepCostoFijo = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         txtNombreFijo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -163,6 +162,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         btnCancelarVariable = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
+        sepCostoFijo = new javax.swing.JSeparator();
         txtNombreVariable = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtDuracionVariable = new javax.swing.JTextField();
@@ -230,9 +230,6 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         lblCamionActualizar.setText("COSTOS PARA CAMION");
         getContentPane().add(lblCamionActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        sepCostoFijo.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO FIJO"));
-        getContentPane().add(sepCostoFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 400, 110));
-
         jLabel3.setText("NOMBRE:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
         getContentPane().add(txtNombreFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 140, -1));
@@ -250,6 +247,11 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(btnGuardarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 90, -1));
 
         btnCancelarVariable.setText("CANCELAR");
+        btnCancelarVariable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarVariableActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCancelarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO VARIABLE"));
@@ -257,6 +259,9 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
 
         jLabel5.setText("NOMBRE:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+
+        sepCostoFijo.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO FIJO"));
+        getContentPane().add(sepCostoFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 400, 110));
         getContentPane().add(txtNombreVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 130, -1));
 
         jLabel6.setText("DURACION: (Km)");
@@ -280,6 +285,11 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(btnGuardarFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 90, -1));
 
         btnCancelarFijo.setText("CANCELAR");
+        btnCancelarFijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarFijoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCancelarFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
 
         jSeparator4.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO FINANCIERO"));
@@ -310,6 +320,11 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(btnGuardarFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 90, -1));
 
         btnCancelarFinanciero.setText("CANCELAR");
+        btnCancelarFinanciero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarFinancieroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCancelarFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, -1, -1));
 
         pack();
@@ -372,6 +387,21 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         //
         limpiarVentanaEntera () ;
     }//GEN-LAST:event_btnGuardarFinancieroActionPerformed
+
+    private void btnCancelarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVariableActionPerformed
+        this.limpioVentanaVariable();
+        this.seteoCostosVariables(Boolean.FALSE);
+    }//GEN-LAST:event_btnCancelarVariableActionPerformed
+
+    private void btnCancelarFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarFijoActionPerformed
+        this.limpioVentanaFijo();
+        this.seteoCostosFijos(Boolean.FALSE);
+    }//GEN-LAST:event_btnCancelarFijoActionPerformed
+
+    private void btnCancelarFinancieroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarFinancieroActionPerformed
+        this.limpiarVentanaFinanciero();
+        this.seteoCostosFinancieros(Boolean.FALSE);
+    }//GEN-LAST:event_btnCancelarFinancieroActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
