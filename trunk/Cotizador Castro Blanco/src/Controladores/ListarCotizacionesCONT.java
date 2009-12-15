@@ -88,12 +88,19 @@ public class ListarCotizacionesCONT
 
             while (it.hasNext()){
                 Cotizacion c = (Cotizacion) it.next();
+                String estado = null;
+                    if (c.getEstado()==1)
+                        estado = "Pendiente";
+                    else if (c.getEstado()==2)
+                        estado = "Rechazada";
+                    else if (c.getEstado()==3)
+                        estado = "Aceptada";
                 csv.write(Integer.toString(c.getNroCotizacion()));
                 csv.write(c.getCliente().getNombre()+" "+c.getCliente().getApellido());
                 csv.write(c.calcularDistanciaTotal()+" km");
                 csv.write(Float.toString(c.getCostoOperativo()));
                 csv.write(Float.toString(c.getPrecioVenta()));
-                csv.write(Integer.toString(c.getEstado())) ; //?"Aceptada":"Rechazada");
+                csv.write(estado) ; //?"Aceptada":"Rechazada");
                 csv.write(c.getFechaEmision().toString());
                 csv.endRecord();
             }

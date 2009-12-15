@@ -1,5 +1,5 @@
 Nro Cotizacion,Cliente,Distancia,Costo Operativo,Precio Operativo,Estado,Fecha
-1002,Nazareno Pesado,1000 km,0.0,0.0,Rechazada,2009-12-14
-1003,Nazareno Pesado,9999 km,0.0,0.0,Rechazada,2009-12-14
 1000,Tomas Cereminati,3000 km,200.0,300.0,Aceptada,2009-12-13
 1001,Nazareno Pesado,0 km,250.0,390.0,Rechazada,2009-12-13
+1002,Nazareno Pesado,1000 km,0.0,0.0,Rechazada,2009-12-14
+1003,Nazareno Pesado,9999 km,0.0,0.0,Rechazada,2009-12-14
