@@ -334,27 +334,27 @@ public class CargarViajes extends javax.swing.JInternalFrame
         blanco.clear(); 
         this.listCostosViaje.setModel(blanco);
     }
-
-    public void cargarViaje (){
-        Ubicacion Origen = new Ubicacion (this.txtPaisOrigen.getText() , this.txtProvinciaOrigen.getText() , this.txtCiudadOrigen.getText() , this.txtDireccionOrigen.getText()) ;
-        Ubicacion Destino = new Ubicacion (this.txtPaisDestino.getText() , this.txtProvinciaDestino.getText() , this.txtCiudadDestino.getText() , this.txtDireccionDestino.getText()) ;
-
-        java.util.Date fechaSalida = calFechaSalida.getDate() ;
-        java.util.Date fechaLlegada = calFechaLlegada.getDate() ;
-
-        java.sql.Date fSalidaSql = new java.sql.Date(fechaSalida.getTime());
-        java.sql.Date fLlegadaSql = new java.sql.Date(fechaLlegada.getTime());
-
-        int Distancia = Integer.valueOf(txtDistancia.getText()) ;
-
-        String DescMercaderia = this.txtDetalleMercaderia.getText() ;
-        
-        Viaje nuevoViaje = new Viaje (Origen , Destino , fSalidaSql , fLlegadaSql , Distancia , DescMercaderia) ;
-
-        nuevoViaje.setCamion((Camion) this.cmbCamion.getSelectedItem());
-
-        this.controlador.procesarCargarViajeNuevo(nuevoViaje);
-    }
+//
+//    public void cargarViaje (){
+//        Ubicacion Origen = new Ubicacion (this.txtPaisOrigen.getText() , this.txtProvinciaOrigen.getText() , this.txtCiudadOrigen.getText() , this.txtDireccionOrigen.getText()) ;
+//        Ubicacion Destino = new Ubicacion (this.txtPaisDestino.getText() , this.txtProvinciaDestino.getText() , this.txtCiudadDestino.getText() , this.txtDireccionDestino.getText()) ;
+//
+//        java.util.Date fechaSalida = calFechaSalida.getDate() ;
+//        java.util.Date fechaLlegada = calFechaLlegada.getDate() ;
+//
+//        java.sql.Date fSalidaSql = new java.sql.Date(fechaSalida.getTime());
+//        java.sql.Date fLlegadaSql = new java.sql.Date(fechaLlegada.getTime());
+//
+//        int Distancia = Integer.valueOf(txtDistancia.getText()) ;
+//
+//        String DescMercaderia = this.txtDetalleMercaderia.getText() ;
+//
+//        Viaje nuevoViaje = new Viaje (Origen , Destino , fSalidaSql , fLlegadaSql , Distancia , DescMercaderia) ;
+//
+//        nuevoViaje.setCamion((Camion) this.cmbCamion.getSelectedItem());
+//
+//        this.controlador.procesarCargarViajeNuevo(nuevoViaje);
+//    }
 
     // le cargo al viaje definitivo, los costos viaje que guarde temporalmente
     public void agregarCostosViajeTemporales (Viaje v){
@@ -377,7 +377,12 @@ public class CargarViajes extends javax.swing.JInternalFrame
        if (r!=null)
            this.mostrarMensaje(r);
        else
-            cargarViaje () ;
+            //cargarViaje() ;
+           controlador.procesarAgregarViaje(this.txtPaisOrigen.getText(), this.txtProvinciaOrigen.getText(),
+                this.txtCiudadOrigen.getText(), this.txtDireccionOrigen.getText(), this.txtPaisDestino.getText(),
+                this.txtProvinciaDestino.getText(), this.txtCiudadDestino.getText(), this.txtDireccionDestino.getText(),
+                this.txtDistancia.getText(), this.calFechaSalida.getDate(), this.calFechaLlegada.getDate(),
+                (Camion)this.cmbCamion.getSelectedItem(), this.txtDetalleMercaderia.getText());
 
     }//GEN-LAST:event_btnAgregarViajeActionPerformed
 

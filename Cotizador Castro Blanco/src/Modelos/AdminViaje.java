@@ -4,6 +4,8 @@ package Modelos;
 import DAO.CamionDAO;
 import DAO.ViajeDAO;
 import Entidades.Camion;
+import Entidades.Ubicacion;
+import Entidades.Viaje;
 import java.sql.Date;
 import java.util.List;
 
@@ -24,4 +26,10 @@ public class AdminViaje
     public boolean verificarCamionDisponibleParaFechas (String patente , Date fechaSalida){
         return this.viajeDAO.verificarCamionDisponibleParaFechas(patente, fechaSalida) ;
     }
+
+    public Viaje crearViaje(Ubicacion ori , Ubicacion des , Date feSalida , Date feLlegada , int dist , String descMercaderia){
+        Viaje v =new Viaje( ori ,  des ,  feSalida ,  feLlegada ,  dist ,  descMercaderia);
+        return v;
+}
+
 }

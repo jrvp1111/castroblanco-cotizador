@@ -1,8 +1,10 @@
 
 package Controladores;
 
+import Entidades.Camion;
 import Entidades.Cliente;
 import Entidades.Cotizacion;
+import Entidades.Ubicacion;
 import Entidades.Viaje;
 import Modelos.Sistema;
 import Vistas.CargarViajes;
@@ -138,6 +140,26 @@ public class CargarViajesCONT
     else
         return r;
     }
+
+
+//    controlador.procesarAgregarViaje(this.txtPaisOrigen.getText(), this.txtProvinciaOrigen.getText(),
+//                this.txtCiudadOrigen.getText(), this.txtDireccionOrigen.getText(), this.txtPaisDestino.getText(),
+//                this.txtProvinciaDestino.getText(), this.txtCiudadDestino.getText(), this.txtDireccionDestino.getText(),
+//                this.txtDistancia.getText(), this.calFechaSalida.getDate(), this.calFechaLlegada.getDate(),
+//                this.cmbCamion.getSelectedItem(), this.txtDetalleMercaderia.getText());
+
+    public void procesarAgregarViaje(String paiso, String provo, String ciudado, String direo,
+            String paisd, String provd, String ciudadd, String dired, String distancia,
+            java.util.Date salida, java.util.Date llegada, Camion camion, String detalle) {
+            Ubicacion Origen = new Ubicacion (paiso, provo, ciudado, direo);
+            Ubicacion Destino = new Ubicacion (paisd, provd, ciudadd, dired);
+        java.sql.Date fSalidaSql = new java.sql.Date(salida.getTime());
+        java.sql.Date fLlegadaSql = new java.sql.Date(llegada.getTime());
+        int dist = Integer.valueOf(distancia) ;
+        Viaje nuevoViaje = new Viaje (Origen , Destino , fSalidaSql , fLlegadaSql , dist , detalle) ;
+        nuevoViaje.setCamion(camion);
+        this.procesarCargarViajeNuevo(nuevoViaje);
+        }
 
 
 }
