@@ -2,14 +2,12 @@
 package Vistas;
 
 import Controladores.LoginUsuarioCONT;
-import Modelos.AdminUsuario;
 import Modelos.Sistema;
 import javax.swing.JOptionPane;
 
 public class LoginUsuario extends javax.swing.JFrame
 {
     private LoginUsuarioCONT controlador;
-    //private AdminUsuario modelo;
     private Sistema modelo ;
 
     public LoginUsuario() {

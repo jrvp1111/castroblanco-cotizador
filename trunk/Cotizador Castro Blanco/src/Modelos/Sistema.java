@@ -67,12 +67,6 @@ public class Sistema
         return Sistema.adminViaje.obtenerCamiones() ;
     }
 
-    /*
-    public void guardarCotizacion (Cotizacion c){
-        Sistema.adminViaje.guardarCotizacion(c) ;
-    }
-    */
-
     /* --- ADMIN COTIZACION --- */
 
     public void guardarCotizacion (Cotizacion c){

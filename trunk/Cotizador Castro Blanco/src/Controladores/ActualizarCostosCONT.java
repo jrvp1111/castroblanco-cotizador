@@ -6,7 +6,6 @@ import Entidades.Costo;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
-import Modelos.AdminCostos;
 import Modelos.Sistema;
 import Vistas.ActualizarCostos;
 import java.util.Vector;
@@ -14,7 +13,6 @@ import java.util.Vector;
 public class ActualizarCostosCONT
 {
     private ActualizarCostos vista;
-    //private AdminCostos modelo;
     private Sistema modelo ;
 
     private Camion cam ;

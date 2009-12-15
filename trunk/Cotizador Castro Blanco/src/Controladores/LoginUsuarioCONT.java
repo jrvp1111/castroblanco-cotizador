@@ -2,7 +2,6 @@
 package Controladores;
 
 import Entidades.Usuario;
-import Modelos.AdminUsuario;
 import Modelos.Sistema;
 import Vistas.LoginUsuario;
 import Vistas.PrincipalUsuario;
@@ -10,7 +9,6 @@ import Vistas.PrincipalUsuario;
 public class LoginUsuarioCONT
 {
     private LoginUsuario vista;
-    //private AdminUsuario modelo;
     private Sistema modelo ;
 
     public LoginUsuarioCONT(LoginUsuario v, Sistema m) {

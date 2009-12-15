@@ -2,8 +2,6 @@
 package Controladores;
 
 import Entidades.Cliente;
-import Modelos.AdminCliente;
-import Modelos.AdminViaje;
 import Modelos.Sistema;
 import Vistas.BuscarCliente;
 import Vistas.CargarViajes;
@@ -13,7 +11,6 @@ import Vistas.PrincipalUsuario;
 public class BuscarClienteCONT
 {
     private BuscarCliente vista;
-    //private AdminCliente modelo;
     private Sistema modelo ;
 
     private Cliente cli ;
@@ -41,7 +38,6 @@ public class BuscarClienteCONT
 
     public void procesarBotonSiguiente (){
        CargarViajes auxVista = new CargarViajes () ;
-       //AdminViaje auxModelo = new AdminViaje () ;
        Sistema auxModelo = Sistema.getInstancia() ;
        CargarViajesCONT cargarviajesCONT = new CargarViajesCONT(auxVista, auxModelo);
        this.vista.cerrar();
