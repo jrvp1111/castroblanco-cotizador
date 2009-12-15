@@ -7,6 +7,7 @@ import Entidades.Costo;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
+import Entidades.CostoViaje;
 import Entidades.Cotizacion;
 import Entidades.Usuario;
 import java.util.List;
@@ -99,6 +100,10 @@ public class Sistema
 
     /* --- ADMIN COSTOS --- */
 
+    public void guardarCostoViaje (CostoViaje cviaje , int nroViaje){
+        Sistema.adminCostos.guardarCostoViaje(cviaje, nroViaje);
+    }
+    
     public void actualizarCostoFijoCamion (CostoFijo fijo , String patente){
         Sistema.adminCostos.actualizarCostoFijoCamion(fijo, patente);
     }

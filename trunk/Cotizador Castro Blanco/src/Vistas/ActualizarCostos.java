@@ -237,8 +237,8 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
         getContentPane().add(txtNombreFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 140, -1));
 
-        jLabel4.setText("VALOR: ($ Mensual)");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+        jLabel4.setText("VALOR: ($ Mes)");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
         getContentPane().add(txtValorFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 140, -1));
 
         btnGuardarVariable.setText("GUARDAR");
@@ -346,7 +346,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
     // guardar los cambios del costo variable
     private void btnGuardarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarVariableActionPerformed
         CostoVariable aux = (CostoVariable) this.costoSeleccionado ;
-        aux.setNombre(this.txtNombreFijo.getText());
+        aux.setNombre(this.txtNombreVariable.getText());
         aux.setCantidad(Integer.valueOf(this.txtCantidadVariable.getText()));
         aux.setDuracion(Integer.valueOf(this.txtDuracionVariable.getText()));
         aux.setPrecioUnitario(Float.valueOf(this.txtPrecioUnitarioVariable.getText()));
