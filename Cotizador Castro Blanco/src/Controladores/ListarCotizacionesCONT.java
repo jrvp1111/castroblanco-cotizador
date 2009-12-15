@@ -84,6 +84,7 @@ public class ListarCotizacionesCONT {
         try {
             csv.write("Nro Cotizacion");
             csv.write("Cliente");
+            csv.write("Distancia");
             csv.write("Costo Operativo");
             csv.write("Precio Operativo");
             csv.write("Estado");
@@ -96,6 +97,7 @@ public class ListarCotizacionesCONT {
                 Cotizacion c = (Cotizacion) it.next();
                 csv.write(Integer.toString(c.getNroCotizacion()));
                 csv.write(c.getCliente().getNombre()+" "+c.getCliente().getApellido());
+                csv.write(c.calcularDistanciaTotal()+" km");
                 csv.write(Float.toString(c.getCostoOperativo()));
                 csv.write(Float.toString(c.getPrecioVenta()));
                 csv.write(c.getEstado()?"Aceptada":"Rechazada");
