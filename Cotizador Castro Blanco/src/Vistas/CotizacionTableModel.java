@@ -61,7 +61,7 @@ public class CotizacionTableModel extends AbstractTableModel
                 case 4:
 			return c.getPrecioVenta();
                 case 5:
-                        return c.getEstado()?"Aceptada":"Rechazada";
+                        return c.getEstado(); //?"Aceptada":"Rechazada";
                 case 6:
                         return c.getFechaEmision();
 		default:

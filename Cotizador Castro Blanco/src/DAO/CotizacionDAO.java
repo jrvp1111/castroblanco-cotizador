@@ -20,7 +20,7 @@ public class CotizacionDAO
                 stmt = conn.prepareStatement(queryContacto);
                 // el numero de cotizacion no lo seteo --> es identity
                 stmt.setFloat(1, c.getCostoOperativo()) ;
-                stmt.setBoolean(2, c.getEstado()) ;
+                stmt.setInt(2, c.getEstado()) ;
                 stmt.setDate(3, c.getFechaEmision()) ;
                 stmt.setFloat(4, c.getPrecioVenta()) ;
                 stmt.setString(5, c.getTipoIdCli()) ;
@@ -70,7 +70,7 @@ public class CotizacionDAO
 
                 while(rs.next()){//TODO - VER LO DE RAZON SOCIAL O NOMBRE O AMBAS
                     Cliente cli = new Cliente(rs.getString("tipoId"), rs.getInt("numeroId"), rs.getString("nombre"), rs.getString("apellido"), "RAZON SOCIAL", rs.getString("email"));
-                    Cotizacion c = new Cotizacion(rs.getBoolean("estado"), rs.getDate("fechaEmision"), 1 - (float) (rs.getFloat("costoOperativo")/rs.getFloat("precioVenta")), cli);
+                    Cotizacion c = new Cotizacion(rs.getInt("estado"), rs.getDate("fechaEmision"), 1 - (float) (rs.getFloat("costoOperativo")/rs.getFloat("precioVenta")), cli);
                     c.setCostoOperativo(rs.getFloat("costoOperativo"));
                     c.setNroCotizacion(rs.getInt("nroCotizacion"));
                     c.setPrecioVenta(rs.getFloat("precioVenta"));

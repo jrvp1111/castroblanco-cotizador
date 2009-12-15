@@ -30,8 +30,11 @@ public class CargarViajesCONT
     public void inicializarCotizacion (){
         Calendar cal = Calendar.getInstance();
         Date fechaActual = new Date(cal.getTimeInMillis());
-        // falta ver de donde sale el margen de ganancia de la cotizacion 
-        this.coti = new Cotizacion (false , fechaActual , (float)0.25 , this.cli) ;
+        // falta ver de donde sale el margen de ganancia de la cotizacion
+        // 1 -> espera
+        // 2 -> rechazada
+        // 3 -> aceptada
+        this.coti = new Cotizacion (1 , fechaActual , (float)0.25 , this.cli) ;
     }
 
     public void guardarCotizacion (Cotizacion c){

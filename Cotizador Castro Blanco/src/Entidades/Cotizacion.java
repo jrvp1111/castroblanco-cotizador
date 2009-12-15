@@ -7,7 +7,7 @@ import java.util.Vector;
 public class Cotizacion
 {
     private int nroCotizacion ;
-    private boolean estado ;
+    private int estado ;
     private Date fechaEmision ;
     private float costoOperativo ;  // es calculado
     private float precioVenta ;     // es calculado
@@ -15,7 +15,7 @@ public class Cotizacion
     private Cliente cliente ;
     private Vector<Viaje> viajes ;
 
-    public Cotizacion (boolean est , Date fechEmi , float margenCotiz , Cliente cli){
+    public Cotizacion (int est , Date fechEmi , float margenCotiz , Cliente cli){
         this.estado = est ;
         this.fechaEmision = fechEmi ;
         this.margenCotizacion = margenCotiz ;
@@ -31,7 +31,7 @@ public class Cotizacion
         return this.nroCotizacion ;
     }
 
-    public boolean getEstado (){
+    public int getEstado (){
         return this.estado ;
     }
 
@@ -71,7 +71,7 @@ public class Cotizacion
         this.costoOperativo = costoOperativo;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
