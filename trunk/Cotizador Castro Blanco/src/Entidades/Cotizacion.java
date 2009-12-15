@@ -101,9 +101,10 @@ public class Cotizacion
 
     public int calcularDistanciaTotal() {
         int distancia=0;
+        System.out.println("Tamanio del vector viajes es: "+Integer.toString(this.viajes.size()));
            for (int i=0; i<this.viajes.size(); i++){
                 distancia=distancia+this.viajes.elementAt(i).getDistancia();
-                System.out.println(distancia);
+                System.out.println("Distancia EN"+Integer.toString(i)+ " es " +Integer.toString(distancia));
            }
         return distancia;
     }
