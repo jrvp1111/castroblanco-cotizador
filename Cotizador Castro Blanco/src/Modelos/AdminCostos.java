@@ -8,6 +8,7 @@ import Entidades.CostoFinanciero;
 import Entidades.CostoMacro;
 import Entidades.CostoVariable;
 import Entidades.CostoViaje;
+import java.sql.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -37,6 +38,14 @@ public class AdminCostos
 
     public void actualizarCostoFinancieroCamion (CostoFinanciero financiero , String patente){
         this.costosDAO.actualizarCostoFinancieroCamion(financiero, patente);
+    }
+
+    public Date obtenerFechaUltimaActualizacionFijo (){
+        return this.costosDAO.obtenerFechaUltimaActualizacionFijo() ;
+    }
+
+    public Date obtenerFechaUltimaActualizacionVariable (){
+        return this.costosDAO.obtenerFechaUltimaActualizacionVariable() ;
     }
 
     public Vector<Costo> obtenerCostosPorNombre (String nombreCosto , String patente){

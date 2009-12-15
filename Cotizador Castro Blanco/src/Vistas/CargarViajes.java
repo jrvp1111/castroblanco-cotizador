@@ -51,6 +51,8 @@ public class CargarViajes extends javax.swing.JInternalFrame
         this.viajesCotizados = new Vector <Viaje> () ;
         CargarCamiones () ;
         mostrarCostosViajes () ;
+        this.lblUltimaActualizacionFijo.setText("Ultima actualizacion de los costos fijos: " + this.modelo.obtenerFechaUltimaActualizacionFijo());
+        this.lblUltimaActualizacionVariable.setText("Ultima actualizacion de los costos variables: " + this.modelo.obtenerFechaUltimaActualizacionVariable());
     }
 
     public void CargarCamiones (){
@@ -114,6 +116,9 @@ public class CargarViajes extends javax.swing.JInternalFrame
         btnSiguiente = new javax.swing.JButton();
         calFechaSalida = new org.freixas.jcalendar.JCalendarCombo();
         calFechaLlegada = new org.freixas.jcalendar.JCalendarCombo();
+        jSeparator6 = new javax.swing.JSeparator();
+        lblUltimaActualizacionFijo = new javax.swing.JLabel();
+        lblUltimaActualizacionVariable = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -154,7 +159,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(txtCiudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 130, -1));
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS VARIOS"));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 260));
 
         jLabel5.setText("DIRECCION:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
@@ -257,7 +262,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(txtTotalCostoViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 60, -1));
 
         jSeparator5.setBorder(javax.swing.BorderFactory.createTitledBorder("VIAJES A COTIZAR"));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 600, 190));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 600, 190));
 
         listViajesCotizados.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { };
@@ -266,7 +271,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         });
         jScrollPane3.setViewportView(listViajesCotizados);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 560, 110));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 560, 110));
 
         btnAgregarViaje.setText("AGREGAR VIAJE");
         btnAgregarViaje.addActionListener(new java.awt.event.ActionListener() {
@@ -274,7 +279,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
                 btnAgregarViajeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 160, -1, -1));
+        getContentPane().add(btnAgregarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 260, -1, -1));
 
         btnEliminarViaje.setText("ELIMINAR VIAJE");
         btnEliminarViaje.addActionListener(new java.awt.event.ActionListener() {
@@ -282,7 +287,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
                 btnEliminarViajeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, -1));
+        getContentPane().add(btnEliminarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
 
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -290,9 +295,20 @@ public class CargarViajes extends javax.swing.JInternalFrame
                 btnSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, -1, -1));
+        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 360, -1, -1));
         getContentPane().add(calFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
         getContentPane().add(calFechaLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+
+        jSeparator6.setBorder(javax.swing.BorderFactory.createTitledBorder("ULTIMA ACTUALIZACION"));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 600, 90));
+
+        lblUltimaActualizacionFijo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblUltimaActualizacionFijo.setText("ULTIMA ACTUALIZACION:");
+        getContentPane().add(lblUltimaActualizacionFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
+
+        lblUltimaActualizacionVariable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblUltimaActualizacionVariable.setText("ULTIMA ACTUALIZACION:");
+        getContentPane().add(lblUltimaActualizacionVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -505,6 +521,9 @@ public class CargarViajes extends javax.swing.JInternalFrame
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JLabel lblUltimaActualizacionFijo;
+    private javax.swing.JLabel lblUltimaActualizacionVariable;
     private javax.swing.JList listCostosViaje;
     private javax.swing.JList listViajesCotizados;
     private javax.swing.JTextField txtCiudadDestino;

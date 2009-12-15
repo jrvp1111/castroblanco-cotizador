@@ -7,6 +7,7 @@ import Entidades.CostoMacro;
 import Entidades.CostoVariable;
 import Entidades.CostoViaje;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -194,4 +195,45 @@ public class CostosDAO
         }
         return costosMacros;
     }
+
+    public Date obtenerFechaUltimaActualizacionFijo() {
+    Date ultimaFecha = null ;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+        try {
+            String query = "SELECT MAX (actualizacion) as 'fecha' FROM CostosFijos";
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+            if(rs.next()) {
+                ultimaFecha = rs.getDate("fecha") ;
+            }
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DAOConnectionManager.getDAOConectionManager().closeConnection(rs,stmt);
+        }
+        return ultimaFecha;
+    }
+
+    public Date obtenerFechaUltimaActualizacionVariable() {
+    Date ultimaFecha = null ;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+        try {
+            String query = "SELECT MAX (actualizacion) as 'fecha' FROM CostosVariables";
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+            if(rs.next()) {
+                ultimaFecha = rs.getDate("fecha") ;
+            }
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DAOConnectionManager.getDAOConectionManager().closeConnection(rs,stmt);
+        }
+        return ultimaFecha;
+    }
+
 }
