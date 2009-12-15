@@ -1,7 +1,5 @@
 Nro Cotizacion,Cliente,Costo Operativo,Precio Operativo,Estado,Fecha
-1000,Tomas Cereminati,200.0,300.0,Aceptada,2009-12-14
-1001,Nazareno Pesado,250.0,390.0,Rechazada,2009-12-14
-1002,Tomas Cereminati,200.0,300.0,Aceptada,2009-12-14
-1003,Nazareno Pesado,250.0,390.0,Rechazada,2009-12-14
-1004,Tomas Cereminati,1000.0,1500.0,Aceptada,2009-01-02
-1005,Tomas Cereminati,1000.0,1500.0,Aceptada,2009-12-02
+1000,Tomas Cereminati,200.0,300.0,Aceptada,2009-12-13
+1001,Nazareno Pesado,250.0,390.0,Rechazada,2009-12-13
+1002,Nazareno Pesado,0.0,0.0,Rechazada,2009-12-14
+1003,Nazareno Pesado,0.0,0.0,Rechazada,2009-12-14

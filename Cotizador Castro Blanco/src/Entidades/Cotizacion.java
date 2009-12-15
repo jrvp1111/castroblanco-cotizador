@@ -91,12 +91,20 @@ public class Cotizacion
         this.precioVenta = precioVenta;
     }
 
-    public void setViajes(Vector<Viaje> viajes) {
-        this.viajes = viajes;
+    public void setViajes(Vector<Viaje> via) {
+        this.viajes = via;
     }
     
     public Vector<Viaje> getViajes (){
         return this.viajes ;
     }
-    
+
+    public int calcularDistanciaTotal() {
+        int distancia=0;
+           for (int i=0; i<this.viajes.size(); i++){
+                distancia=distancia+this.viajes.elementAt(i).getDistancia();
+                System.out.println(distancia);
+           }
+        return distancia;
+    }
 }

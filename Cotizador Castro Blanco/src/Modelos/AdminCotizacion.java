@@ -102,6 +102,13 @@ public class AdminCotizacion
     }
 
     public Vector<Cotizacion> obtenerCotizaciones(){
-        return this.cotizacionDAO.cargarTodas();
+        Vector<Cotizacion> cargadas = this.cotizacionDAO.cargarTodas();
+        for (int i=0; i<cargadas.size(); i++){
+            Cotizacion c = cargadas.elementAt(i);
+            Vector<Viaje>vs = viajeDAO.obtener(c.getNroCotizacion());
+            c.setViajes(vs);
+            //cargadas.elementAt(i).setViajes(viajeDAO.obtener(cargadas.elementAt(i).getNroCotizacion()));
+        }
+        return cargadas;
     }
 }
