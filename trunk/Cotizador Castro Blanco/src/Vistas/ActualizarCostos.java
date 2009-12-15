@@ -5,6 +5,7 @@ import Controladores.ActualizarCostosCONT;
 import Entidades.Camion;
 import Entidades.Costo;
 import Entidades.CostoFijo;
+import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
 import Modelos.AdminCostos;
 import java.util.Calendar;
@@ -73,6 +74,15 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         this.btnCancelarVariable.setEnabled(estado);
     }
 
+    public void seteoCostosFinancieros (Boolean estado){
+        this.txtNombreFinanciero.setEnabled(estado);
+        this.txtDepreciacionFinanciero.setEnabled(estado);
+        this.txtValorUnidadFinanciero.setEnabled(estado);
+        this.txtVidaUtilFinanciero.setEnabled(estado);
+        this.btnGuardarFinanciero.setEnabled(estado);
+        this.btnCancelarFinanciero.setEnabled(estado);
+    }
+
     public void limpioVentanaFijo (){
         this.txtNombreFijo.setText("");
         this.txtValorFijo.setText("");
@@ -83,6 +93,13 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         this.txtCantidadVariable.setText("");
         this.txtDuracionVariable.setText("");
         this.txtPrecioUnitarioVariable.setText("");
+    }
+
+    public void limpiarVentanaFinanciero (){
+        this.txtNombreFinanciero.setText("");
+        this.txtDepreciacionFinanciero.setText("");
+        this.txtValorUnidadFinanciero.setText("");
+        this.txtVidaUtilFinanciero.setText("");
     }
 
     public void completarDatosFijo (CostoFijo fijo){
@@ -97,11 +114,20 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         this.txtPrecioUnitarioVariable.setText(String.valueOf(variable.getPrecioUnitario()));
     }
 
+    public void completarDatosFinanciero (CostoFinanciero financiero){
+        this.txtNombreFinanciero.setText(financiero.getNombre()) ;
+        this.txtValorUnidadFinanciero.setText(String.valueOf(financiero.getValorUnidad()));
+        this.txtVidaUtilFinanciero.setText(String.valueOf(financiero.getVidaUtil()));
+        this.txtDepreciacionFinanciero.setText(String.valueOf(financiero.getDepreciacion()));
+    }
+
     public void limpiarVentanaEntera (){
         this.limpioVentanaFijo();
         this.limpioVentanaVariable();
+        this.limpiarVentanaFinanciero();
         this.seteoCostosFijos(false);
         this.seteoCostosVariables(false);
+        this.seteoCostosFinancieros(false);
     }
 
     public void cargarCostosEnLista (Vector<Costo> costosEncontrados){
@@ -199,7 +225,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         });
         getContentPane().add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
 
-        lblCamionActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCamionActualizar.setFont(new java.awt.Font("Tahoma", 1, 12));
         lblCamionActualizar.setText("COSTOS PARA CAMION");
         getContentPane().add(lblCamionActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -226,7 +252,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(btnCancelarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO VARIABLE"));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 400, 20));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 400, 200));
 
         jLabel5.setText("NOMBRE:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
@@ -256,7 +282,7 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(btnCancelarFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
 
         jSeparator4.setBorder(javax.swing.BorderFactory.createTitledBorder("COSTO FINANCIERO"));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 400, 180));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 400, 190));
 
         jLabel9.setText("NOMBRE:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, -1, -1));
@@ -275,6 +301,11 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         getContentPane().add(txtDepreciacionFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 130, -1));
 
         btnGuardarFinanciero.setText("GUARDAR");
+        btnGuardarFinanciero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarFinancieroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardarFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 90, -1));
 
         btnCancelarFinanciero.setText("CANCELAR");
@@ -327,6 +358,19 @@ public class ActualizarCostos extends javax.swing.JInternalFrame
         //
         limpiarVentanaEntera () ;
     }//GEN-LAST:event_btnGuardarVariableActionPerformed
+
+    private void btnGuardarFinancieroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarFinancieroActionPerformed
+        CostoFinanciero aux = (CostoFinanciero) this.costoSeleccionado ;
+        aux.setNombre(this.txtNombreFinanciero.getText());
+        aux.setVidaUtil(Integer.valueOf(this.txtVidaUtilFinanciero.getText()));
+        aux.setValorUnidad(Float.valueOf(this.txtValorUnidadFinanciero.getText()));
+        aux.setDepreciacion(Float.valueOf(this.txtDepreciacionFinanciero.getText()));
+        //
+        this.modelo.actualizarCostoFinancieroCamion(aux, this.controlador.getCamion().getPatente());
+        this.mostrarMensaje("El costo financiero se ha actualizado correctamente");
+        //
+        limpiarVentanaEntera () ;
+    }//GEN-LAST:event_btnGuardarFinancieroActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

@@ -131,4 +131,24 @@ public class CostosDAO
             DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
         }
     }
+
+    public void actualizarCostoFinancieroCamion (CostoFinanciero cfinancieroEdit , String patente) {
+    PreparedStatement stmt = null;
+        try {
+            String query = "UPDATE CostosFinancieros SET nombre = ? , depreciacion = ? , valorUnidad = ? , vidaUtil = ? WHERE Patente = ? AND nombre = ?";
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, cfinancieroEdit.getNombre()) ; // nombre nuevo
+            stmt.setFloat(2, cfinancieroEdit.getDepreciacion()) ;
+            stmt.setFloat(3, cfinancieroEdit.getValorUnidad()) ;
+            stmt.setInt(4, cfinancieroEdit.getVidaUtil()) ;
+            stmt.setString(5, patente) ;
+            stmt.setString(6, cfinancieroEdit.getNombre()) ; // nombre viejo
+            stmt.executeUpdate();
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
+        }
+    }
 }
