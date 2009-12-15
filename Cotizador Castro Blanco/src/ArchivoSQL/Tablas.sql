@@ -96,7 +96,7 @@ CREATE TABLE Cotizaciones
 (
 	nroCotizacion int not null identity (1000,1),
 	costoOperativo float not null,
-	estado bit not null,
+	estado int not null,
 	fechaEmision datetime not null,
 	precioVenta float not null,
 	cliTipoId char (5) not null,
