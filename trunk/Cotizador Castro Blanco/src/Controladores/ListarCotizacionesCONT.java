@@ -93,7 +93,7 @@ public class ListarCotizacionesCONT
                 csv.write(c.calcularDistanciaTotal()+" km");
                 csv.write(Float.toString(c.getCostoOperativo()));
                 csv.write(Float.toString(c.getPrecioVenta()));
-                csv.write(c.getEstado()?"Aceptada":"Rechazada");
+                csv.write(Integer.toString(c.getEstado())) ; //?"Aceptada":"Rechazada");
                 csv.write(c.getFechaEmision().toString());
                 csv.endRecord();
             }
