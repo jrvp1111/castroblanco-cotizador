@@ -1,6 +1,7 @@
 
 package Modelos;
 
+import DAO.CostosDAO;
 import DAO.CotizacionDAO;
 import DAO.ViajeDAO;
 import Entidades.CostoFijo;
@@ -16,12 +17,14 @@ public class AdminCotizacion
 {
     private CotizacionDAO cotizacionDAO ;
     private ViajeDAO viajeDAO ;
+    private CostosDAO costosDAO ;
 
     private AdminCamion adminCamion ;
 
     public AdminCotizacion (){
         this.cotizacionDAO = new CotizacionDAO () ;
         this.viajeDAO = new ViajeDAO () ;
+        this.costosDAO = new CostosDAO () ;
         this.adminCamion = new AdminCamion () ;
     }
 
@@ -29,14 +32,24 @@ public class AdminCotizacion
         this.cotizacionDAO.guardar(c);
         int nroCotizacion = this.cotizacionDAO.obtenerUltimoNroCotizacion() ;
         Vector<Viaje> viajesCotizados = c.getViajes() ;
-        for (int i = 0 ; i < viajesCotizados.size() ; i ++){
-            Viaje aux = viajesCotizados.get(i) ;
+        for (int i1 = 0 ; i1 < viajesCotizados.size() ; i1 ++){
+            Viaje aux = viajesCotizados.get(i1) ;
             this.viajeDAO.guardar(aux, nroCotizacion);
+            int nroViaje = this.viajeDAO.obtenerUltimoNroViaje() ;
+            Vector<CostoViaje> costosViaje = aux.getCostosViajes() ;
+            for (int i2 = 0 ; i2 < costosViaje.size() ; i2 ++){
+                CostoViaje auxCostoViaje = costosViaje.get(i2) ;
+                this.costosDAO.guardarCostoViaje(auxCostoViaje, nroViaje);
+            }
         }
     }
 
     public int obtenerNroCotizacion (){
         return this.cotizacionDAO.obtenerUltimoNroCotizacion();
+    }
+
+    public int obtenerNroViaje (){
+        return this.viajeDAO.obtenerUltimoNroViaje() ;
     }
 
     public float calcularCostosFijos (Cotizacion coti){

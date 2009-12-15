@@ -44,6 +44,27 @@ public class ViajeDAO
         }
     }
 
+    public int obtenerUltimoNroViaje () {
+    int num = 0 ;
+    Statement stmt = null;
+    ResultSet rs = null ;
+        try {
+            String query = "SELECT MAX (nroViaje) as 'nroViaje' FROM Viajes";
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+            if(rs.next()) {
+                num = rs.getInt("nroViaje") ;
+            }
+            System.out.println("Numero Buscado: " + num);
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DAOConnectionManager.getDAOConectionManager().closeConnection(rs,stmt);
+        }
+        return num ;
+    }
+
     public Vector<Viaje> obtener(int nroCotizacion){
         Statement stmt = null;
         Vector<Viaje> viajes = null;

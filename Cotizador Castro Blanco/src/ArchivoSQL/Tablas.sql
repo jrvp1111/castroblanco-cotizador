@@ -248,6 +248,6 @@ INSERT INTO CostosVariables VALUES ('Filtro Nafta' , '20091210' , 60 , 9000 , 1 
 INSERT INTO CostosVariables VALUES ('Filtro Aceite' , '20091210' , 95 , 12000 , 1 , 'GXE-325')
 INSERT INTO CostosVariables VALUES ('Neumatico Direc' , '20091210' , 250 , 28000 , 2 , 'GXE-325')
 
-INSERT INTO CostosFinancieros VALUES ('Amotizacion' , 30 , 160000 , 5 , 'FED-925')
-INSERT INTO CostosFinancieros VALUES ('Amotizacion' , 25 , 140000 , 6 , 'ETG-108')
-INSERT INTO CostosFinancieros VALUES ('Amotizacion' , 20 , 190000 , 7 , 'GXE-325')
+INSERT INTO CostosFinancieros VALUES ('Amortizacion' , 30 , 160000 , 5 , 'FED-925')
+INSERT INTO CostosFinancieros VALUES ('Amortizacion' , 25 , 140000 , 6 , 'ETG-108')
+INSERT INTO CostosFinancieros VALUES ('Amortizacion' , 20 , 190000 , 7 , 'GXE-325')

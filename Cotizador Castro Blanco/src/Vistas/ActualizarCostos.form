@@ -168,11 +168,11 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="VALOR: ($ Mensual)"/>
+        <Property name="text" type="java.lang.String" value="VALOR: ($ Mes)"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="370" y="80" width="-1" height="-1"/>
+          <AbsoluteConstraints x="380" y="80" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

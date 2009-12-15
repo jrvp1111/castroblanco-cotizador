@@ -4,6 +4,7 @@ package DAO;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
+import Entidades.CostoViaje;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -149,6 +150,23 @@ public class CostosDAO
             System.out.println(e.getMessage());
         }finally {
             DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
+        }
+    }
+
+    public void guardarCostoViaje(CostoViaje cviaje , int nroViaje) {
+    PreparedStatement stmt = null;
+        try {
+                String queryContacto = "INSERT INTO CostoViaje VALUES (?,?,?)";
+                Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+                stmt = conn.prepareStatement(queryContacto);
+                stmt.setString(1, cviaje.getNombre()) ;
+                stmt.setFloat(2, cviaje.getValor()) ;
+                stmt.setInt(3, nroViaje) ;
+                stmt.executeUpdate();
+        }catch(SQLException e) {
+                System.out.println(e.getMessage());
+        }finally {
+                DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
         }
     }
 }

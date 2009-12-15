@@ -6,6 +6,7 @@ import Entidades.Costo;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
+import Entidades.CostoViaje;
 import java.util.List;
 import java.util.Vector;
 
@@ -17,6 +18,10 @@ public class AdminCostos
         this.costosDAO = new CostosDAO () ;
     }
 
+    public void guardarCostoViaje (CostoViaje cviaje , int nroViaje){
+        this.costosDAO.guardarCostoViaje(cviaje, nroViaje);
+    }
+    
     public void actualizarCostoFijoCamion (CostoFijo fijo , String patente){
         this.costosDAO.actualizarCostoFijoCamion(fijo, patente);
     }
