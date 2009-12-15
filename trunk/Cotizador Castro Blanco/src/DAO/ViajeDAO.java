@@ -1,10 +1,15 @@
 
 package DAO;
 
+import Entidades.Ubicacion;
 import Entidades.Viaje;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
+
 
 public class ViajeDAO
 {
@@ -36,6 +41,40 @@ public class ViajeDAO
                 System.out.println(e.getMessage());
         }finally {
                 DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
+        }
+    }
+
+    public Vector<Viaje> obtener(int nroCotizacion){
+        Statement stmt = null;
+        Vector<Viaje> viajes = null;
+        Viaje v = null;
+        try {
+            viajes = new Vector<Viaje>();
+            String query = "select * " +
+                        "from viajes v " +
+                        "where v.nroCotizacion = "+nroCotizacion;
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            if (rs.next())
+                System.out.println("hay result");
+            else
+                System.out.println("no hay nada ");
+            
+            while(rs.next()){
+                Ubicacion origen = new Ubicacion(rs.getString("paisOrigen"), rs.getString("proviciaOrigen"), rs.getString("ciudadOrigen"), rs.getString("direccionOrigen"));//pais, prov, ciudad, direccion
+                Ubicacion destino = new Ubicacion(rs.getString("paisDestino"), rs.getString("proviciaDestino"), rs.getString("ciudadDestino"), rs.getString("direccionDestino"));//pais, prov, ciudad, direccion
+                v = new Viaje(origen,destino,rs.getDate("fechaSalida"),rs.getDate("fechaLlegada"),rs.getInt("distancia"),rs.getString("mercaderia"));
+                viajes.addElement(v);
+            }
+           // return viajes;
+
+        }catch(SQLException e) {
+                System.out.println(e.getMessage());
+        }finally {
+                DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
+                return viajes;
         }
     }
 }

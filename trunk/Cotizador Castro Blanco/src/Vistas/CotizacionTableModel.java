@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class CotizacionTableModel extends AbstractTableModel{
 
-	private String [] columnNames = {"Nro", "Cliente",  "Costo Operativo", "Precio Venta", "Estado",  "Fecha"};
+	private String [] columnNames = {"Nro", "Cliente",  "Distancia", "Costo Operativo", "Precio Venta", "Estado",  "Fecha"};
 	private Vector<Cotizacion> datalist = new Vector<Cotizacion>();
 
 
@@ -64,12 +64,16 @@ public class CotizacionTableModel extends AbstractTableModel{
 		case 1:
 			return c.getCliente().getNombre()+" "+c.getCliente().getApellido();
 		case 2:
-			return c.getCostoOperativo();
-		case 3:
-			return c.getPrecioVenta();
+                        return c.calcularDistanciaTotal();
+
+                case 3:
+                    return c.getCostoOperativo();
+                        
                 case 4:
-                        return c.getEstado()?"Aceptada":"Rechazada";
+			return c.getPrecioVenta();
                 case 5:
+                        return c.getEstado()?"Aceptada":"Rechazada";
+                case 6:
                         return c.getFechaEmision();
 		default:
 			return null;
