@@ -124,5 +124,20 @@ public class CargarViajesCONT
 		return es;
 	}
 
+    public String validarAgregarCostoAdicional(String nombre, String valor) {
+    String r = "";
+    if (nombre.isEmpty())
+        r+="Debe ingresar un nombre para el costo adicional\n";
+    if (valor.isEmpty())
+        r+="Debe ingresar un valor para el costo adicional\n";
+    else if (!isInteger(valor))
+        r+="El valor del costo adicional debe ser numerico";
+
+    if (r.equals(""))
+        return null;
+    else
+        return r;
+    }
+
 
 }
