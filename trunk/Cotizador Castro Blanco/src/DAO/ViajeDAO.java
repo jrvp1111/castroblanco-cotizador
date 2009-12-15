@@ -79,11 +79,13 @@ public class ViajeDAO
             ResultSet rs = stmt.executeQuery(query);
 
             while(rs.next()){
-                Ubicacion origen = new Ubicacion(rs.getString("paisOrigen"), rs.getString("proviciaOrigen"), rs.getString("ciudadOrigen"), rs.getString("direccionOrigen"));//pais, prov, ciudad, direccion
-                Ubicacion destino = new Ubicacion(rs.getString("paisDestino"), rs.getString("proviciaDestino"), rs.getString("ciudadDestino"), rs.getString("direccionDestino"));//pais, prov, ciudad, direccion
+                Ubicacion origen = new Ubicacion(rs.getString("paisOrigen"), rs.getString("provinciaOrigen"), rs.getString("ciudadOrigen"), rs.getString("direccionOrigen"));//pais, prov, ciudad, direccion
+                Ubicacion destino = new Ubicacion(rs.getString("paisDestino"), rs.getString("provinciaDestino"), rs.getString("ciudadDestino"), rs.getString("direccionDestino"));//pais, prov, ciudad, direccion
                 v = new Viaje(origen,destino,rs.getDate("fechaSalida"),rs.getDate("fechaLlegada"),rs.getInt("distancia"),rs.getString("mercaderia"));
                 viajes.addElement(v);
+                System.out.println("viaje numero: " +Integer.toString(v.getNroViaje()));
             }
+            System.out.println("Cantidad de viajes cargados: "+ Integer.toString(viajes.size()));
            // return viajes;
 
         }catch(SQLException e) {
