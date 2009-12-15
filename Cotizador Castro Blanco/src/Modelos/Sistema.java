@@ -6,6 +6,7 @@ import Entidades.Cliente;
 import Entidades.Costo;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
+import Entidades.CostoMacro;
 import Entidades.CostoVariable;
 import Entidades.CostoViaje;
 import Entidades.Cotizacion;
@@ -103,7 +104,15 @@ public class Sistema
     public void guardarCostoViaje (CostoViaje cviaje , int nroViaje){
         Sistema.adminCostos.guardarCostoViaje(cviaje, nroViaje);
     }
-    
+
+    public Vector<CostoMacro> obtenerCostosMacroGeneral (){
+        return Sistema.adminCostos.obtenerCostosMacroGeneral() ;
+    }
+
+    public float calcularCostosMacro (Cotizacion coti){
+        return Sistema.adminCotizacion.calcularCostosMacro(coti) ;
+    }
+
     public void actualizarCostoFijoCamion (CostoFijo fijo , String patente){
         Sistema.adminCostos.actualizarCostoFijoCamion(fijo, patente);
     }

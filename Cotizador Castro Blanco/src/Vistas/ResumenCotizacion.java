@@ -37,18 +37,19 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         this.txtViajesCotizados.setText(X);
     }
 
-    public void mostrarCostosCalculados (float margenGan , float costoFijo , float costoVariable , float costoFinanciero , float costoViaje){
-        float costoOperativo = costoFijo + costoVariable + costoFinanciero + costoViaje ;
+    public void mostrarCostosCalculados (float margenGan , float costoFijo , float costoVariable , float costoFinanciero , float costoViaje , float costosMacro){
+        float costoOperativo = costoFijo + costoVariable + costoFinanciero + costoViaje + costosMacro ;
         float precioVenta = costoOperativo * (1 + margenGan) ;
         // el controlador de la ventana tienen referencia de la cotizacion activa
         this.controlador.getCotizacion().setCostoOperativo(costoOperativo);
         this.controlador.getCotizacion().setPrecioVenta(precioVenta);
-        this.txtResumen.setText("Total de costos fijos: " + Float.toString(costoFijo) + "\n"
-                              + "Total de costos variables: " + Float.toString(costoVariable) + "\n"
-                              + "Total de costos financieros: " + Float.toString(costoFinanciero) + "\n"
-                              + "Total de costos viajes: " + Float.toString(costoViaje) + "\n\n"
-                              + "TOTAL COSTO OPERATIVO: " + costoOperativo + "\n\n"
-                              + "PRECIO DE VENTA: " + precioVenta) ;
+        this.txtResumen.setText("Total de costos fijos: $" + Float.toString(costoFijo) + "\n"
+                              + "Total de costos variables: $" + Float.toString(costoVariable) + "\n"
+                              + "Total de costos financieros: $" + Float.toString(costoFinanciero) + "\n"
+                              + "Total de costos viajes: $" + Float.toString(costoViaje) + "\n"
+                              + "Total de costos macro (gasoil): $" + Float.toString(costosMacro) + "\n\n"
+                              + "TOTAL COSTO OPERATIVO: $" + costoOperativo + "\n\n"
+                              + "PRECIO DE VENTA: $" + precioVenta) ;
     }
 
     public void mostrarMensaje(String msg) {
@@ -74,11 +75,11 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtResumen.setColumns(20);
-        txtResumen.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtResumen.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         txtResumen.setRows(5);
         jScrollPane1.setViewportView(txtResumen);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 320, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 380, 380));
 
         btnFinalizar.setText("FINALIZAR");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +87,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
                 btnFinalizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 443, -1, 30));
+        getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 440, -1, 30));
 
         btnAtras.setText("ATRAS");
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 443, -1, 30));
@@ -96,15 +97,15 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         txtViajesCotizados.setRows(5);
         jScrollPane2.setViewportView(txtViajesCotizados);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 460, 380));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 460, 380));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setText("Datos de la cotizacion final:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Datos de los viajes a cotizar:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

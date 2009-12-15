@@ -5,6 +5,7 @@ import DAO.CostosDAO;
 import Entidades.Costo;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
+import Entidades.CostoMacro;
 import Entidades.CostoVariable;
 import Entidades.CostoViaje;
 import java.util.List;
@@ -20,6 +21,10 @@ public class AdminCostos
 
     public void guardarCostoViaje (CostoViaje cviaje , int nroViaje){
         this.costosDAO.guardarCostoViaje(cviaje, nroViaje);
+    }
+
+    public Vector<CostoMacro> obtenerCostosMacroGeneral (){
+        return this.costosDAO.obtenerCostosMacroGeneral() ;
     }
     
     public void actualizarCostoFijoCamion (CostoFijo fijo , String patente){
