@@ -78,4 +78,51 @@ public class CargarViajesCONT
        // cargo la ventana de "cargar viajes" al desktop principal
        PrincipalUsuario.getInstancia().agregarVentanaResumenCotizacion(auxVista);
     }
+
+    public String validarAgregarViaje(String paiso, String provo, String ciudado, String direcciono,
+            String paisd, String provd, String ciudadd, String direcciond,
+            String distancia, java.util.Date salida, java.util.Date llegada) {
+        String r = "";
+        if (salida.after(llegada))
+            r+= "La fecha de salida no puede ser posterior a la fecha de llegada \n";
+        if (paiso.isEmpty())
+            r+= "Debe ingresar el pais de origen \n";
+        if (provo.isEmpty())
+            r+= "Debe ingresar la provincia de origen\n";
+        if (ciudado.isEmpty())
+            r+= "Debe ingresar la ciudad de origen\n";
+        if (direcciono.isEmpty())
+            r+= "Debe ingresar la direccion de origen\n";
+        if (paisd.isEmpty())
+            r+= "Debe ingresar el pais de destino\n";
+        if (provd.isEmpty())
+            r+= "Debe ingresar la provincia de destino\n";
+        if (ciudadd.isEmpty())
+            r+= "Debe ingresar la ciudad de destino\n";
+        if (direcciond.isEmpty())
+            r+= "Debe ingresar la direccion de destino\n";
+        if (distancia.isEmpty())
+            r+= "Debe ingresar un valor para la distancia\n";
+        if (!isInteger(distancia))
+            r+= "La distancia debe ser un numero entero (medida en km)\n";
+
+        if (r.equals(""))
+            return null;
+        else
+            return r;
+
+    }
+
+    	public boolean isInteger(String i){
+		boolean es;
+		try {
+			Integer.parseInt(i);
+			es = true;
+		} catch(NumberFormatException e) {
+			es = false;
+		}
+		return es;
+	}
+
+
 }
