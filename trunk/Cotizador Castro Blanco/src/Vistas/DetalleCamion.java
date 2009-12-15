@@ -5,7 +5,6 @@ import Entidades.Camion;
 
 public class DetalleCamion extends javax.swing.JInternalFrame
 {
-
     public DetalleCamion() {
         initComponents();
     }

@@ -13,7 +13,7 @@ public class AdminCliente
         this.clienteDAO = new ClienteDAO () ;
     }
 
-    public Cliente obtenerPorNombreUsuario (String tipoId , int numeroId){
+    public Cliente obtenerPorNombreCliente (String tipoId , int numeroId){
         Cliente c = this.clienteDAO.obtenerPorTipoNumeroDni(tipoId, numeroId);
         return c ;
     }

@@ -8,6 +8,7 @@ import Controladores.ListarCotizacionesCONT;
 import Modelos.AdminCamion;
 import Modelos.AdminCliente;
 import Modelos.AdminCostos;
+import Modelos.Sistema;
 
 public class PrincipalUsuario extends javax.swing.JFrame
 {
@@ -112,20 +113,23 @@ public class PrincipalUsuario extends javax.swing.JFrame
 
     private void jMenuGenerarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGenerarCotizacionActionPerformed
        BuscarCliente vista = new BuscarCliente () ;
-       AdminCliente modelo = new AdminCliente () ;
+       //AdminCliente modelo = new AdminCliente () ;
+       Sistema modelo = Sistema.getInstancia() ;
        new BuscarClienteCONT(vista, modelo);
        this.DesktopPrincipal.add(vista);
     }//GEN-LAST:event_jMenuGenerarCotizacionActionPerformed
 
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        ListarCotizacionesCONT controlador = new ListarCotizacionesCONT();
        this.DesktopPrincipal.add(controlador.getVista());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
     // abro la primer ventana para seleccionar el camion
     private void jMenuActualizarCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuActualizarCostosActionPerformed
        BuscarCamion vista = new BuscarCamion () ;
-       AdminCamion modelo = new AdminCamion () ;
+       //AdminCamion modelo = new AdminCamion () ;
+       Sistema modelo = Sistema.getInstancia() ;
        new BuscarCamionCONT (vista, modelo);
        vista.inicializarVentana();
        this.DesktopPrincipal.add(vista);

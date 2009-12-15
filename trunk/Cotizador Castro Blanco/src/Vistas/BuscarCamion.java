@@ -4,13 +4,15 @@ package Vistas;
 import Controladores.BuscarCamionCONT;
 import Entidades.Camion;
 import Modelos.AdminCamion;
+import Modelos.Sistema;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class BuscarCamion extends javax.swing.JInternalFrame
 {
     private BuscarCamionCONT controlador;
-    private AdminCamion modelo;
+    //private AdminCamion modelo;
+    private Sistema modelo ;
 
     public BuscarCamion() {
         initComponents();
@@ -25,7 +27,7 @@ public class BuscarCamion extends javax.swing.JInternalFrame
       this.controlador = c;
     }
 
-    public void setModelo(AdminCamion m) {
+    public void setModelo(Sistema m) {
       this.modelo = m;
     }
 

@@ -4,6 +4,7 @@ package Controladores;
 import Entidades.Camion;
 import Modelos.AdminCamion;
 import Modelos.AdminCostos;
+import Modelos.Sistema;
 import Vistas.ActualizarCostos;
 import Vistas.BuscarCamion;
 import Vistas.PrincipalUsuario;
@@ -11,11 +12,12 @@ import Vistas.PrincipalUsuario;
 public class BuscarCamionCONT
 {
     private BuscarCamion vista;
-    private AdminCamion modelo;
+    //private AdminCamion modelo;
+    private Sistema modelo ;
 
     private Camion cam ;
 
-    public BuscarCamionCONT(BuscarCamion v, AdminCamion m) {
+    public BuscarCamionCONT(BuscarCamion v, Sistema m) {
         this.vista = v;
         this.modelo = m;
         vista.setControlador(this);
@@ -32,7 +34,8 @@ public class BuscarCamionCONT
 
     public void procesarBotonSiguiente (){
        ActualizarCostos auxVista = new ActualizarCostos () ;
-       AdminCostos auxModelo = new AdminCostos () ;
+       //AdminCostos auxModelo = new AdminCostos () ;
+       Sistema auxModelo = Sistema.getInstancia() ;
        ActualizarCostosCONT actualizarcostosCONT = new ActualizarCostosCONT(auxVista, auxModelo);
        this.vista.cerrar();
        // le seteo a la cotizacion, el cliente buscado en esta ventana

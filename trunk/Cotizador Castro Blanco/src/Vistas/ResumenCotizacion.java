@@ -4,13 +4,15 @@ package Vistas;
 import Controladores.ResumenCotizacionCONT;
 import Entidades.Viaje;
 import Modelos.AdminCotizacion;
+import Modelos.Sistema;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 
 public class ResumenCotizacion extends javax.swing.JInternalFrame
 {
     private ResumenCotizacionCONT controlador;
-    private AdminCotizacion modelo;
+    //private AdminCotizacion modelo;
+    private Sistema modelo ;
 
     public ResumenCotizacion() {
         initComponents();
@@ -20,7 +22,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
       this.controlador = c;
     }
 
-    public void setModelo(AdminCotizacion m) {
+    public void setModelo(Sistema m) {
       this.modelo = m;
     }
 
