@@ -14,7 +14,7 @@ public class DetalleCamion extends javax.swing.JInternalFrame
                               + "MARCA: " + cam.getMarca() + "\n"
                               + "MODELO: " + cam.getModelo() + "\n"
                               + "CANT. PALLETS: " + cam.getCantPallets() + "\n"
-                              + "CONSUMO COMBUSTIBLE: " + cam.getCantCombustible()) ;
+                              + "CONSUMO COMBUSTIBLE: " + cam.getCantCombustible() + " litros para 1 km.") ;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -46,7 +46,7 @@ public class DetalleCamion extends javax.swing.JInternalFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                     .addComponent(btnCerrar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -55,7 +55,7 @@ public class DetalleCamion extends javax.swing.JInternalFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnCerrar)
                 .addContainerGap())
         );

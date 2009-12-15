@@ -139,14 +139,14 @@ CREATE TABLE Viajes
 (
 	nroViaje int not null identity (1000,1),
 	nroCotizacion int not null,
-	paisOrigen varchar (20) not null,
-	provinciaOrigen	varchar (20) not null,
-	ciudadOrigen varchar (20) not null,
-	direccionOrigen	varchar (20) not null,
-	paisDestino varchar (20) not null,
-	provinciaDestino varchar (20) not null,
-	ciudadDestino varchar (20) not null,
-	direccionDestino varchar (20) not null,	
+	paisOrigen varchar (40) not null,
+	provinciaOrigen	varchar (40) not null,
+	ciudadOrigen varchar (40) not null,
+	direccionOrigen	varchar (40) not null,
+	paisDestino varchar (40) not null,
+	provinciaDestino varchar (40) not null,
+	ciudadDestino varchar (40) not null,
+	direccionDestino varchar (40) not null,
 	fechaSalida datetime not null,
 	fechaLlegada datetime not null,
 	distancia int not null,
@@ -211,9 +211,9 @@ CREATE TABLE UsuariosPermisos
 
 /* --- CARGA DE DATOS --- */
 
-INSERT INTO Camiones VALUES ('FED-925','Ford','SE1200',10,15)
-INSERT INTO Camiones VALUES ('ETG-108','Volskwagen','RX1300',10,12)
-INSERT INTO Camiones VALUES ('GXE-325','Renault','TGZ20',12,10)
+INSERT INTO Camiones VALUES ('FED-925' , 'Ford' , 'SE1200' , 10 , 0.15)     -- el ultimo valor es la cantidad de litros para hacer un kilometro
+INSERT INTO Camiones VALUES ('ETG-108' , 'Volskwagen' , 'RX1300' , 10 , 0.12)
+INSERT INTO Camiones VALUES ('GXE-325' , 'Renault' , 'TGZ20' , 12 , 0.18)
 
 INSERT INTO Choferes VALUES (30618628 , 'Juan' , 'Perez' , '9 de julio 3253' , '4135-4820' , '553*4884')
 INSERT INTO Choferes VALUES (29318682 , 'Damian' , 'Gomez' , '25 de mayo 285' , '4281-9544' , '208*39635')
@@ -251,3 +251,6 @@ INSERT INTO CostosVariables VALUES ('Neumatico Direc' , '20091210' , 250 , 28000
 INSERT INTO CostosFinancieros VALUES ('Amortizacion' , 30 , 160000 , 5 , 'FED-925')
 INSERT INTO CostosFinancieros VALUES ('Amortizacion' , 25 , 140000 , 6 , 'ETG-108')
 INSERT INTO CostosFinancieros VALUES ('Amortizacion' , 20 , 190000 , 7 , 'GXE-325')
+
+INSERT INTO CostosMacro VALUES ('Gasoil' , '20091215' , 3.17)
+

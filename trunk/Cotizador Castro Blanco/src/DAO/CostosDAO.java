@@ -3,6 +3,7 @@ package DAO;
 
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
+import Entidades.CostoMacro;
 import Entidades.CostoVariable;
 import Entidades.CostoViaje;
 import java.sql.Connection;
@@ -168,5 +169,29 @@ public class CostosDAO
         }finally {
                 DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
         }
+    }
+
+    public Vector<CostoMacro> obtenerCostosMacroGeneral () {
+    Vector<CostoMacro> costosMacros = new Vector<CostoMacro> () ;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+        try {
+            String query = "SELECT * FROM CostosMacro";
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+            while(rs.next()) {
+                    CostoMacro cm = new CostoMacro () ;
+                    cm.setNombre(rs.getString("nombre")) ;
+                    cm.setValor(rs.getFloat("valor")) ;
+                    cm.setActualizacion(rs.getDate("actualizacion")) ;
+                    costosMacros.add(cm);
+            }
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DAOConnectionManager.getDAOConectionManager().closeConnection(rs,stmt);
+        }
+        return costosMacros;
     }
 }

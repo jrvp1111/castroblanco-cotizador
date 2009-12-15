@@ -29,6 +29,6 @@ public class ResumenCotizacionCONT
 
     public void cargarDatosIniciales (){
         this.vista.mostrarViajesCotizados(this.coti.getViajes());
-        this.vista.mostrarCostosCalculados(this.coti.getMargenCotizacion() , modelo.calcularCostosFijos(coti) , modelo.calcularCostosVariables(coti) , modelo.calcularCostosFinancieros(coti) , modelo.calcularCostosViaje(coti)) ;
+        this.vista.mostrarCostosCalculados(this.coti.getMargenCotizacion() , modelo.calcularCostosFijos(coti) , modelo.calcularCostosVariables(coti) , modelo.calcularCostosFinancieros(coti) , modelo.calcularCostosViaje(coti) , modelo.calcularCostosMacro(coti)) ;
     }
 }

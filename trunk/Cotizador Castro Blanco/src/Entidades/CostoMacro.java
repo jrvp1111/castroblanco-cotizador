@@ -20,4 +20,20 @@ public class CostoMacro extends Costo
         this.actualizacion = null ;
     }
 
+    public void setValor (float valor){
+        this.valor = valor ;
+    }
+
+    public float getValor (){
+        return this.valor ;
+    }
+
+    public void setActualizacion (Date fecha){
+        this.actualizacion = fecha ;
+    }
+    
+    public Date getActualizacion (){
+        return this.actualizacion ;
+    }
+
 }

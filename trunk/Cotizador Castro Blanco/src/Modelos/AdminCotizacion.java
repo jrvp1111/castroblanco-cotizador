@@ -4,8 +4,10 @@ package Modelos;
 import DAO.CostosDAO;
 import DAO.CotizacionDAO;
 import DAO.ViajeDAO;
+import Entidades.Camion;
 import Entidades.CostoFijo;
 import Entidades.CostoFinanciero;
+import Entidades.CostoMacro;
 import Entidades.CostoVariable;
 import Entidades.CostoViaje;
 import Entidades.Cotizacion;
@@ -110,6 +112,20 @@ public class AdminCotizacion
                 CostoViaje auxCostoViaje = auxCostosViajes.get(i2);
                 costoTotal = costoTotal + auxCostoViaje.getValor() ;
             }
+        }
+        return costoTotal ;
+    }
+
+    public float calcularCostosMacro (Cotizacion coti){
+        float costoTotal = 0 ;
+        Vector<Viaje> auxViajes = coti.getViajes() ;
+        Vector<CostoMacro> costosMacro = Sistema.getInstancia().obtenerCostosMacroGeneral() ;
+        CostoMacro auxCostoMacro = costosMacro.get(0) ; // ACA ESTA LA TRAMPA ! , POR AHORA HAY SOLO UNO (GASOIL) , SI HAY MAS , TENEMOS PROBLEMAS !
+        for (int i1 = 0 ; i1 < auxViajes.size() ; i1 ++){
+            Viaje auxViaje = auxViajes.get(i1);
+            float consumoCamion = auxViaje.getCamion().getCantCombustible() ;
+            float auxCantLitros = (auxViaje.getDistancia() * consumoCamion) ; // saco la cantidad de litros para recorrer toda esa distancia
+            costoTotal = costoTotal + (auxCantLitros * auxCostoMacro.getValor()) ; // multiplico la cantidad de litros que necesita, por el precio de un litro de combustible
         }
         return costoTotal ;
     }

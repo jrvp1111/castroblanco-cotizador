@@ -128,9 +128,9 @@ public class CargarViajes extends javax.swing.JInternalFrame
 
         setClosable(true);
         setIconifiable(true);
-        setResizable(true);
         setTitle("CARGAR VIAJES");
-        setPreferredSize(new java.awt.Dimension(700, 850));
+        setPreferredSize(new java.awt.Dimension(1100, 650));
+        setRequestFocusEnabled(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder("ORIGEN"));
@@ -153,7 +153,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(txtCiudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 130, -1));
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS VARIOS"));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 270));
 
         jLabel5.setText("DIRECCION:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
@@ -251,7 +251,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(txtTotalCostoViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 60, -1));
 
         jSeparator5.setBorder(javax.swing.BorderFactory.createTitledBorder("VIAJES A COTIZAR"));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 600, 190));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 600, 190));
 
         listViajesCotizados.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { };
@@ -260,7 +260,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         });
         jScrollPane3.setViewportView(listViajesCotizados);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 560, 110));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 560, 110));
 
         btnAgregarViaje.setText("AGREGAR VIAJE");
         btnAgregarViaje.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +268,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
                 btnAgregarViajeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
+        getContentPane().add(btnAgregarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 160, -1, -1));
 
         btnEliminarViaje.setText("ELIMINAR VIAJE");
         btnEliminarViaje.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +276,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
                 btnEliminarViajeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 770, -1, -1));
+        getContentPane().add(btnEliminarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, -1));
 
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +284,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
                 btnSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 580, -1, -1));
+        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, -1, -1));
         getContentPane().add(calFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
         getContentPane().add(calFechaLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
 
