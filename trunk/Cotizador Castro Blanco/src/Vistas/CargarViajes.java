@@ -424,7 +424,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         Camion aux = (Camion) this.cmbCamion.getSelectedItem() ;
         java.util.Date fechaSalida = calFechaSalida.getDate() ;
         java.sql.Date fSalidaSql = new java.sql.Date(fechaSalida.getTime());
-        if (Sistema.getInstancia().verificarCamionDisponibleParaFechas(aux.getPatente() , fSalidaSql) == true){
+        if (Sistema.getInstancia().verificarCamionDisponibleParaFechas(aux.getPatente() , fSalidaSql) == false){
             this.mostrarMensaje("El camion ya esta ocupado para esa fecha ! Seleccione otro !");
             return ;
         }

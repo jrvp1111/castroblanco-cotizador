@@ -100,13 +100,14 @@ public class ViajeDAO
     PreparedStatement stmt = null;
     ResultSet rs = null ;
         try {
-            String query = "select * from viajes where camionViaje = ? and (? between fechaSalida and fechaLlegada)";
+            String query = "SELECT * FROM VIAJES WHERE camionViaje = ? and (? BETWEEN fechaSalida AND fechaLlegada)";
             Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
             stmt = conn.prepareStatement(query);
             stmt.setString(1, patente);
             stmt.setDate(2, fechaSalida);
-            rs = stmt.executeQuery(query);
+            rs = stmt.executeQuery();
             if(rs.next()) {
+                // si ya hay un viaje para ese camion, en esa fecha, pongo false (NO esta disponible) !
                 disponible = false ;
             }
         }catch(SQLException e) {
