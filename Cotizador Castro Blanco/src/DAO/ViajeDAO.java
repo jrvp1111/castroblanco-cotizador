@@ -5,6 +5,7 @@ import Entidades.Ubicacion;
 import Entidades.Viaje;
 import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -77,7 +78,6 @@ public class ViajeDAO
             Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-
             while(rs.next()){
                 Ubicacion origen = new Ubicacion(rs.getString("paisOrigen"), rs.getString("provinciaOrigen"), rs.getString("ciudadOrigen"), rs.getString("direccionOrigen"));//pais, prov, ciudad, direccion
                 Ubicacion destino = new Ubicacion(rs.getString("paisDestino"), rs.getString("provinciaDestino"), rs.getString("ciudadDestino"), rs.getString("direccionDestino"));//pais, prov, ciudad, direccion
@@ -86,13 +86,33 @@ public class ViajeDAO
                 System.out.println("viaje numero: " +Integer.toString(v.getNroViaje()));
             }
             System.out.println("Cantidad de viajes cargados: "+ Integer.toString(viajes.size()));
-           // return viajes;
-
         }catch(SQLException e) {
                 System.out.println(e.getMessage());
         }finally {
                 DAOConnectionManager.getDAOConectionManager().closeConnection(stmt);
                 return viajes;
         }
+    }
+
+    public boolean verificarCamionDisponibleParaFechas (String patente , Date fechaSalida) {
+    boolean disponible = false ;
+    PreparedStatement stmt = null;
+    ResultSet rs = null ;
+        try {
+            String query = "select * from viajes where camionViaje = ? and (? between fechaSalida and fechaLlegada)";
+            Connection conn = DAOConnectionManager.getDAOConectionManager().getConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, patente);
+            stmt.setDate(2, fechaSalida);
+            rs = stmt.executeQuery(query);
+            if(rs.next()) {
+                disponible = false ;
+            }
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DAOConnectionManager.getDAOConectionManager().closeConnection(rs,stmt);
+        }
+        return disponible ;
     }
 }

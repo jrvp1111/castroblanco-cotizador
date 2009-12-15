@@ -129,6 +129,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         setClosable(true);
         setIconifiable(true);
         setTitle("CARGAR VIAJES");
+        setAutoscrolls(true);
         setPreferredSize(new java.awt.Dimension(1100, 650));
         setRequestFocusEnabled(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -153,7 +154,7 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(txtCiudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 130, -1));
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS VARIOS"));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 270));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 460, 20));
 
         jLabel5.setText("DIRECCION:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
@@ -188,6 +189,11 @@ public class CargarViajes extends javax.swing.JInternalFrame
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         cmbCamion.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
+        cmbCamion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCamionActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmbCamion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, -1));
 
         btnDetalleCamion.setText("VER DETALLE");
@@ -399,6 +405,16 @@ public class CargarViajes extends javax.swing.JInternalFrame
         auxVista.completarInformacionCamion((Camion) this.cmbCamion.getSelectedItem()) ;
         PrincipalUsuario.getInstancia().agregarVentanaDetalleCamion(auxVista);
     }//GEN-LAST:event_btnDetalleCamionActionPerformed
+
+    private void cmbCamionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCamionActionPerformed
+        Camion aux = (Camion) this.cmbCamion.getSelectedItem() ;
+        java.util.Date fechaSalida = calFechaSalida.getDate() ;
+        java.sql.Date fSalidaSql = new java.sql.Date(fechaSalida.getTime());
+        if (Sistema.getInstancia().verificarCamionDisponibleParaFechas(aux.getPatente() , fSalidaSql) == true){
+            this.mostrarMensaje("El camion ya esta ocupado para esa fecha ! Seleccione otro !");
+            return ;
+        }
+    }//GEN-LAST:event_cmbCamionActionPerformed
 
     public void mostrarViajesCargados (){
         DefaultListModel dlmViajesCargadosAux = (DefaultListModel) this.listViajesCotizados.getModel() ;

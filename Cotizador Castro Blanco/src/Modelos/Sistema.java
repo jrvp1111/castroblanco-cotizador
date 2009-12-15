@@ -11,6 +11,7 @@ import Entidades.CostoVariable;
 import Entidades.CostoViaje;
 import Entidades.Cotizacion;
 import Entidades.Usuario;
+import java.sql.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -67,6 +68,10 @@ public class Sistema
 
     public List<Camion> obtenerCamiones (){
         return Sistema.adminViaje.obtenerCamiones() ;
+    }
+
+    public boolean verificarCamionDisponibleParaFechas (String patente , Date fechaSalida){
+        return Sistema.adminViaje.verificarCamionDisponibleParaFechas(patente, fechaSalida) ;
     }
 
     /* --- ADMIN COTIZACION --- */
