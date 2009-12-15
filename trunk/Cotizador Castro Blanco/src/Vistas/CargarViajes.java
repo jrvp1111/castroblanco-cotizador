@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class CargarViajes extends javax.swing.JInternalFrame
 {
@@ -298,13 +299,18 @@ public class CargarViajes extends javax.swing.JInternalFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarCostoAdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCostoAdiActionPerformed
-        CostoViaje nuevo = new CostoViaje (this.txtNombreCostoAdi.getText() , Float.valueOf(this.txtMontoCostoAdi.getText())) ;
+        String r = this.controlador.validarAgregarCostoAdicional(this.txtNombreCostoAdi.getText(), this.txtMontoCostoAdi.getText());
+        if (r!=null)
+            this.mostrarMensaje(r);
+        else{
+            CostoViaje nuevo = new CostoViaje (this.txtNombreCostoAdi.getText() , Float.valueOf(this.txtMontoCostoAdi.getText()));
         this.costoViajeTemporal.add(nuevo);
         mostrarCostosViajes () ;
         mostrarTotalCostosViaje () ;
         // limpio las cajas de texto
         this.txtNombreCostoAdi.setText("");
         this.txtMontoCostoAdi.setText("");
+        }
     }//GEN-LAST:event_btnAgregarCostoAdiActionPerformed
 
     public void agregarViajeAVectorTemporal (Viaje v){
@@ -365,7 +371,15 @@ public class CargarViajes extends javax.swing.JInternalFrame
 
     // BOTON AGREGAR VIAJE
     private void btnAgregarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarViajeActionPerformed
-        cargarViaje () ;
+       String r = controlador.validarAgregarViaje(this.txtPaisOrigen.getText(), this.txtProvinciaOrigen.getText(),
+                this.txtCiudadOrigen.getText(), this.txtDireccionOrigen.getText(), this.txtPaisDestino.getText(),
+                this.txtProvinciaDestino.getText(), this.txtCiudadDestino.getText(), this.txtDireccionDestino.getText(), 
+                this.txtDistancia.getText(), this.calFechaSalida.getDate(), this.calFechaLlegada.getDate());
+       if (r!=null)
+           this.mostrarMensaje(r);
+       else
+            cargarViaje () ;
+
     }//GEN-LAST:event_btnAgregarViajeActionPerformed
 
     // muestra la ventana con el resumen de la cotizacion
@@ -445,6 +459,10 @@ public class CargarViajes extends javax.swing.JInternalFrame
         this.txtTotalCostoViaje.setText(String.valueOf(total));
     }
 
+
+
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarCostoAdi;
     private javax.swing.JButton btnAgregarViaje;
@@ -497,4 +515,5 @@ public class CargarViajes extends javax.swing.JInternalFrame
     private javax.swing.JTextField txtProvinciaOrigen;
     private javax.swing.JTextField txtTotalCostoViaje;
     // End of variables declaration//GEN-END:variables
+
 }
