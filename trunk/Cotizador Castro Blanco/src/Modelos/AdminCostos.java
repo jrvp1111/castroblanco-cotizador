@@ -46,19 +46,28 @@ public class AdminCostos
         List<CostoFinanciero> auxCostosFinancieros = this.costosDAO.obtenerCostosFinancierosCamion(patente) ;
         for (int i1 = 0 ; i1 < auxCostosFijos.size() ; i1 ++){
             CostoFijo auxCostoFijo = auxCostosFijos.get(i1) ;
-            if (auxCostoFijo.getNombre().compareTo(nombreCosto) == 0){
+            /*if (auxCostoFijo.getNombre().compareTo(nombreCosto) == 0){
+            encontrados.add(auxCostoFijo);
+            }*/
+            if (auxCostoFijo.getNombre().indexOf(nombreCosto) != -1){
                 encontrados.add(auxCostoFijo);
             }
         }
         for (int i2 = 0 ; i2 < auxCostosVariables.size() ; i2 ++){
             CostoVariable auxCostoVariable = auxCostosVariables.get(i2) ;
-            if (auxCostoVariable.getNombre().compareTo(nombreCosto) == 0){
+            /*if (auxCostoVariable.getNombre().compareTo(nombreCosto) == 0){
+            encontrados.add(auxCostoVariable);
+            }*/
+            if (auxCostoVariable.getNombre().indexOf(nombreCosto) != -1){
                 encontrados.add(auxCostoVariable);
             }
         }
         for (int i3 = 0 ; i3 < auxCostosFinancieros.size() ; i3 ++){
             CostoFinanciero auxCostoFinanciero = auxCostosFinancieros.get(i3) ;
-            if (auxCostoFinanciero.getNombre().compareTo(nombreCosto) == 0){
+            /*if (auxCostoFinanciero.getNombre().compareTo(nombreCosto) == 0){
+            encontrados.add(auxCostoFinanciero);
+            }*/
+            if (auxCostoFinanciero.getNombre().indexOf(nombreCosto) != -1){
                 encontrados.add(auxCostoFinanciero);
             }
         }
