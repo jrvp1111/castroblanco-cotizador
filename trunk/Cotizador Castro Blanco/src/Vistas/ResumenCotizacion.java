@@ -62,7 +62,6 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResumen = new javax.swing.JTextArea();
         btnFinalizar = new javax.swing.JButton();
-        btnAtras = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtViajesCotizados = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -75,7 +74,7 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtResumen.setColumns(20);
-        txtResumen.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        txtResumen.setFont(new java.awt.Font("Monospaced", 1, 14));
         txtResumen.setRows(5);
         jScrollPane1.setViewportView(txtResumen);
 
@@ -89,11 +88,8 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
         });
         getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 440, -1, 30));
 
-        btnAtras.setText("ATRAS");
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 443, -1, 30));
-
         txtViajesCotizados.setColumns(20);
-        txtViajesCotizados.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        txtViajesCotizados.setFont(new java.awt.Font("Monospaced", 1, 14));
         txtViajesCotizados.setRows(5);
         jScrollPane2.setViewportView(txtViajesCotizados);
 
@@ -118,7 +114,6 @@ public class ResumenCotizacion extends javax.swing.JInternalFrame
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
