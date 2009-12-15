@@ -49,7 +49,7 @@ public class AdminCostos
             /*if (auxCostoFijo.getNombre().compareTo(nombreCosto) == 0){
             encontrados.add(auxCostoFijo);
             }*/
-            if (auxCostoFijo.getNombre().indexOf(nombreCosto) != -1){
+            if (auxCostoFijo.getNombre().toUpperCase().indexOf(nombreCosto.toUpperCase()) != -1){
                 encontrados.add(auxCostoFijo);
             }
         }
@@ -58,7 +58,7 @@ public class AdminCostos
             /*if (auxCostoVariable.getNombre().compareTo(nombreCosto) == 0){
             encontrados.add(auxCostoVariable);
             }*/
-            if (auxCostoVariable.getNombre().indexOf(nombreCosto) != -1){
+            if (auxCostoVariable.getNombre().toUpperCase().indexOf(nombreCosto.toUpperCase()) != -1){
                 encontrados.add(auxCostoVariable);
             }
         }
@@ -67,7 +67,7 @@ public class AdminCostos
             /*if (auxCostoFinanciero.getNombre().compareTo(nombreCosto) == 0){
             encontrados.add(auxCostoFinanciero);
             }*/
-            if (auxCostoFinanciero.getNombre().indexOf(nombreCosto) != -1){
+            if (auxCostoFinanciero.getNombre().toUpperCase().indexOf(nombreCosto.toUpperCase()) != -1){
                 encontrados.add(auxCostoFinanciero);
             }
         }
