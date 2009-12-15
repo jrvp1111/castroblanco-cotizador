@@ -4,6 +4,7 @@ package Controladores;
 import Entidades.Camion;
 import Entidades.Costo;
 import Entidades.CostoFijo;
+import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
 import Modelos.AdminCostos;
 import Vistas.ActualizarCostos;
@@ -46,14 +47,28 @@ public class ActualizarCostosCONT
             this.vista.completarDatosFijo((CostoFijo) costo);
             this.vista.setCostoSeleccionado(costo);
             this.vista.seteoCostosVariables(Boolean.FALSE);
+            this.vista.seteoCostosFinancieros(Boolean.FALSE);
             this.vista.limpioVentanaVariable();
+            this.vista.limpiarVentanaFinanciero();
         }
         if (costo.getClass().getName().equals("Entidades.CostoVariable")){
             System.out.println("VARIBALE");
             this.vista.seteoCostosFijos(Boolean.FALSE);
+            this.vista.seteoCostosFinancieros(Boolean.FALSE);
             this.vista.limpioVentanaFijo();
+            this.vista.limpiarVentanaFinanciero();
             this.vista.seteoCostosVariables(Boolean.TRUE);
             this.vista.completarDatosVariable((CostoVariable) costo);
+            this.vista.setCostoSeleccionado(costo);
+        }
+        if (costo.getClass().getName().equals("Entidades.CostoFinanciero")){
+            System.out.println("FINANCIERO");
+            this.vista.seteoCostosFijos(Boolean.FALSE);
+            this.vista.limpioVentanaFijo();
+            this.vista.seteoCostosVariables(Boolean.FALSE);
+            this.vista.limpiarVentanaFinanciero();
+            this.vista.seteoCostosFinancieros(Boolean.TRUE);
+            this.vista.completarDatosFinanciero((CostoFinanciero) costo);
             this.vista.setCostoSeleccionado(costo);
         }
     }

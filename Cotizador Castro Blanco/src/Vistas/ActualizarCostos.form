@@ -216,7 +216,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="350" y="130" width="400" height="20"/>
+          <AbsoluteConstraints x="350" y="130" width="400" height="200"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -321,7 +321,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="350" y="340" width="400" height="180"/>
+          <AbsoluteConstraints x="350" y="340" width="400" height="190"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -397,6 +397,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="GUARDAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarFinancieroActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="650" y="370" width="90" height="-1"/>

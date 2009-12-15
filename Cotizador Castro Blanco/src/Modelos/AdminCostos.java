@@ -4,6 +4,7 @@ package Modelos;
 import DAO.CostosDAO;
 import Entidades.Costo;
 import Entidades.CostoFijo;
+import Entidades.CostoFinanciero;
 import Entidades.CostoVariable;
 import java.util.List;
 import java.util.Vector;
@@ -24,10 +25,15 @@ public class AdminCostos
         this.costosDAO.actualizarCostoVariableCamion(variable, patente);
     }
 
+    public void actualizarCostoFinancieroCamion (CostoFinanciero financiero , String patente){
+        this.costosDAO.actualizarCostoFinancieroCamion(financiero, patente);
+    }
+
     public Vector<Costo> obtenerCostosPorNombre (String nombreCosto , String patente){
         Vector<Costo> encontrados = new Vector<Costo> ();
         List<CostoFijo> auxCostosFijos = this.costosDAO.obtenerCostosFijosCamion(patente) ;
         List<CostoVariable> auxCostosVariables = this.costosDAO.obtenerCostosVariablesCamion(patente) ;
+        List<CostoFinanciero> auxCostosFinancieros = this.costosDAO.obtenerCostosFinancierosCamion(patente) ;
         for (int i1 = 0 ; i1 < auxCostosFijos.size() ; i1 ++){
             CostoFijo auxCostoFijo = auxCostosFijos.get(i1) ;
             if (auxCostoFijo.getNombre().compareTo(nombreCosto) == 0){
@@ -38,6 +44,12 @@ public class AdminCostos
             CostoVariable auxCostoVariable = auxCostosVariables.get(i2) ;
             if (auxCostoVariable.getNombre().compareTo(nombreCosto) == 0){
                 encontrados.add(auxCostoVariable);
+            }
+        }
+        for (int i3 = 0 ; i3 < auxCostosFinancieros.size() ; i3 ++){
+            CostoFinanciero auxCostoFinanciero = auxCostosFinancieros.get(i3) ;
+            if (auxCostoFinanciero.getNombre().compareTo(nombreCosto) == 0){
+                encontrados.add(auxCostoFinanciero);
             }
         }
         return encontrados ;
